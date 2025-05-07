@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 Nikhil Govindaraju — Developer Portfolio
 
 Welcome to my **personal portfolio website**, built to showcase my skills, projects, and experience as a Full Stack Engineer, Cloud & ML Enthusiast, and creative technologist.  
@@ -45,3 +46,6 @@ Designed with a premium UI/UX focus, subtle animations, and space-themed aesthet
 | Contact      | Modern form or social links |
 | Footer       | Clean and minimal with copyright |
 
+=======
+# website
+>>>>>>> 9ac5de1 (Initial commit)
