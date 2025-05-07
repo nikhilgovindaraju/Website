@@ -5,7 +5,7 @@ import styles from '../styles/hero.module.css';
 function Hero() {
     return (
         <section className={styles.heroSection} id="hero">
-            <img src="/profile-pic.png" alt="Profile" className={styles.profilePic} />
+            <img src={`${import.meta.env.BASE_URL}profile-pic.png`} alt="Profile" className={styles.profilePic} />
             <h1>
                 Hi, I'm <span className={styles.name}>Nikhil Govindaraju</span>
             </h1>
