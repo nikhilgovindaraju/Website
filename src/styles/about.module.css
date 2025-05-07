@@ -1,0 +1,119 @@
+.aboutSection {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #e0e0e0;
+    text-align: center;
+}
+
+.aboutSection h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.aboutSection h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 0.5rem auto;
+    background: linear-gradient(90deg, #4e91fc, #9c6bff, #4e91fc);
+    border-radius: 2px;
+    animation: twinkle 5s ease infinite;
+}
+
+@keyframes twinkle {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.intro {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+/* ---------- EDUCATION SECTION ---------- */
+
+.subSection {
+    margin-bottom: 3rem;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.subSection h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+    text-align: left;
+}
+
+.eduList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.eduItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+}
+
+.eduItem img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.eduItem img:hover {
+    transform: scale(1.05);
+}
+
+.eduDetails h4 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.eduDetails p {
+    margin: 0;
+    color: #aaa;
+    font-size: 1rem;
+}
+
+/* ---------- CERTIFICATIONS ---------- */
+
+.certList {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.certList li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Subtle entrance animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

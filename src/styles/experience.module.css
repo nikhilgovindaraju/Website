@@ -1,0 +1,141 @@
+.experienceSection {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem 3rem 2rem; /* Top, sides, bottom */
+    color: #e0e0e0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.experienceSection h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.experienceCard {
+    background-color: #1e1e1e;
+    width: 600px;
+    min-height: 500px;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2px solid transparent;
+    margin-bottom: 2rem; /* Space before the nav buttons */
+}
+
+.experienceCard:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
+    border: 2px solid #555;
+}
+
+.experienceLogo {
+    width: 150px;   /* increase as you like */
+    height: 100px;
+    border-radius: 10%;
+    margin-bottom: 1rem;
+}
+
+.experienceCard h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.experienceCard h4 {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+}
+
+.period {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.experienceCard ul {
+    list-style: disc;
+    text-align: left;
+    margin: 1rem auto;
+    max-width: 80%;
+}
+
+.experienceCard ul li {
+    margin-bottom: 0.5rem;
+}
+
+.techTags {
+    margin-top: auto;
+}
+
+.techTags span {
+    background-color: #333;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    display: inline-block;
+}
+
+.arrowContainer {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.navBtn {
+    background-color: transparent;
+    border: 2px solid #555;
+    color: #e0e0e0;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navBtn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .experienceCard {
+        width: 90%;
+        min-height: auto;
+    }
+}
+
+.dotsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #555;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.dot:hover {
+    background-color: #777;
+    transform: scale(1.2);
+}
+
+.activeDot {
+    background-color: #e0e0e0;
+    transform: scale(1.3);
+}
+

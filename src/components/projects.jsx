@@ -1,0 +1,91 @@
+import React from "react";
+import { FaGithub } from "react-icons/fa";
+import styles from "../styles/projects.module.css";
+
+import weatherImg from '../assets/weather.png';
+import iosImg from '../assets/ios.png';
+import ehrImg from '../assets/EHR.png';
+import digitImg from '../assets/digitrecognition.png';
+import portfolioImg from '../assets/portfolio.png';
+import seqalignImg from '../assets/seqalign.png';
+import routeItImg from '../assets/routeit.png';
+
+
+const projects = [
+    {
+        title: "Weather Monitoring Application",
+        technologies: ["MEAN Stack", "Google Cloud", "RESTful APIs", "Highcharts"],
+        description: " Engineered a responsive web application using Angular and TypeScript frontend with Node.js/Express backend, integrating MongoDB for data persistence and real-time weather monitoring and location services, featuring interactive weather visualization using HighCharts.",
+        github: "https://github.com/nikhilgovindaraju/WeatherApp",
+        image: weatherImg
+    },
+    {
+        title: "Weather App (iOS)",
+        technologies: ["Node.js", "Express", "Swift","SwiftUI"],
+        description: "Developed a complementary native iOS mobile application using Swift and UIKit, implementing location-based services and weather data visualization, with RESTful API integration for seamless data synchronization with the web platform.",
+        github: "https://github.com/nikhilgovindaraju/iosAppDevelpment",
+        image: iosImg
+    },
+    {
+        title: "Secure EHR Audit System",
+        technologies: ["Python", "Flask", "Blockchain", "Bootstrap"],
+        description: "Secure decentralized audit system for healthcare records with cryptographic encryption. Integrated cryptographic security with RSA for digital signatures, AES-128 for log encryption, and hash chaining for tamper detection, session-based login and role-based access control for auditors, doctors, and patients.",
+        github: "https://github.com/nikhilgovindaraju/SecureDecentralizedAuditSystem",
+        image: ehrImg
+    },
+    // {
+    //     title: "Personal Portfolio",
+    //     technologies: ["React", "CSS Modules", "Framer Motion"],
+    //     description: "Fully responsive portfolio showcasing projects, skills, and work experience using modern web technologies.",
+    //     github: "https://github.com/nikhilgovindaraju/Portfolio",
+    //     image: portfolioImg
+    // },
+    {
+        title: "Sequence Alignment",
+        technologies: ["Python", "Dynamic Programming", "Algorithms"],
+        description: "Implemented efficient Sequence Alignment solutions using Dynamic Programming and Divide-and-Conquer, optimizing memory usage and ensuring accurate results across datasets.",
+        github: "https://github.com/nikhilgovindaraju/SequenceAlignment",
+        image: seqalignImg
+    },
+    {
+        title: "Handwritten Digit Recognition",
+        technologies: ["Python", "Classification", "Keras", "TensorFlow"],
+        description: "Preprocessed the Emnist dataset and segmented it into categories that later helped in predicting digitally entered english alphabet using Keras library used for Machine Learning.",
+        github: "#",
+        image: digitImg
+    },
+    {
+        title: "Route It- Smart traveling",
+        technologies: ["Flutter", "Google Maps", "Firebase", "Dart"],
+        description: "Architected a scalable cross-platform mobile and web application using Flutter and Dart for the frontend, implementing real-time route optimization algorithms and integrating Google Maps API for location services, with Firebase Authentication for secure user management.",
+        github: "https://github.com/nikhilgovindaraju/route_it_v2",
+        image: routeItImg
+    }
+];
+
+const Projects = () => {
+    return (
+        <section className={styles.projectsSection} id="projects">
+            <h2>Projects</h2>
+            <div className={styles.grid}>
+                {projects.map((proj, index) => (
+                    <div key={index} className={styles.projectCard}>
+                        <img src={proj.image} alt={proj.title} className={styles.projectImage} />
+                        <h3>{proj.title}</h3>
+                        <div className={styles.techTags}>
+                            {proj.technologies.map((tech, idx) => (
+                                <span key={idx}>{tech}</span>
+                            ))}
+                        </div>
+                        <p>{proj.description}</p>
+                        <a href={proj.github} target="_blank" rel="noopener noreferrer" className={styles.githubLink}>
+                            <FaGithub /> GitHub
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+};
+
+export default Projects;

@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #2e3a59;
+    padding: 1rem 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #4e91fc;
+}
+
+.navbar a[download] {
+    background-color: #4e91fc;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.navbar a[download]:hover {
+    background-color: #377edb;
+    color: white;
+}
