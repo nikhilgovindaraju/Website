@@ -1,141 +1,152 @@
+/* Experience Section container */
 .experienceSection {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 5rem 2rem 3rem 2rem; /* Top, sides, bottom */
-    color: #e0e0e0;
+    padding: 80px 20px;
     text-align: center;
-    box-sizing: border-box;
 }
 
+/* Section Title */
 .experienceSection h2 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fff;
 }
 
+/* Swiper container */
+.experienceSwiper {
+    max-width: 600px;  /* Reduce width */
+    margin: 0 auto;
+    padding-bottom: 50px; /* Space for pagination dots */
+    position: relative;
+}
+
+/* Experience Card */
 .experienceCard {
     background-color: #1e1e1e;
-    width: 600px;
-    min-height: 500px;
-    padding: 2rem;
     border-radius: 16px;
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    border: 2px solid transparent;
-    margin-bottom: 2rem; /* Space before the nav buttons */
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+    margin: 0 auto;
 }
 
 .experienceCard:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(255, 255, 255, 0.2);
-    border: 2px solid #555;
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
 }
 
 .experienceLogo {
-    width: 150px;   /* increase as you like */
-    height: 100px;
-    border-radius: 10%;
-    margin-bottom: 1rem;
+    height: 60px;
+    margin-bottom: 20px;
 }
 
 .experienceCard h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin: 10px 0 5px 0;
 }
 
 .experienceCard h4 {
     font-size: 1.2rem;
-    color: #aaa;
-    margin-bottom: 0.5rem;
+    color: #ccc;
+    margin-bottom: 10px;
 }
 
-.period {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+.duration {
+    font-style: italic;
+    color: #aaa;
+    margin-bottom: 15px;
 }
 
 .experienceCard ul {
-    list-style: disc;
     text-align: left;
-    margin: 1rem auto;
-    max-width: 80%;
+    margin: 0 auto 15px auto;
+    max-width: 90%;
+    list-style-type: disc;
 }
 
-.experienceCard ul li {
-    margin-bottom: 0.5rem;
+.experienceCard li {
+    margin-bottom: 8px;
 }
 
-.techTags {
-    margin-top: auto;
-}
-
-.techTags span {
-    background-color: #333;
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    margin: 0.3rem;
-    display: inline-block;
-}
-
-.arrowContainer {
+.skills {
     display: flex;
-    gap: 2rem;
+    flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 1rem;
+    gap: 8px;
 }
 
-.navBtn {
-    background-color: transparent;
-    border: 2px solid #555;
-    color: #e0e0e0;
-    padding: 0.5rem 1.2rem;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.navBtn:hover {
+.skillTag {
     background-color: #333;
-    transform: scale(1.05);
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    color: #ddd;
 }
 
-@media (max-width: 768px) {
-    .experienceCard {
-        width: 90%;
-        min-height: auto;
-    }
+/* SWIPER ARROWS - outside and white */
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff !important;
+    text-shadow: 0 0 8px white;
+    top: 45%;
+    width: 40px;
+    height: 40px;
 }
 
-.dotsContainer {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 1.5rem;
+.swiper-button-prev {
+    left: -50px; /* push outside the card */
 }
 
-.dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background-color: #555;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+.swiper-button-next {
+    right: -50px; /* push outside the card */
 }
 
-.dot:hover {
-    background-color: #777;
-    transform: scale(1.2);
+/* SWIPER DOTS - outside and white */
+
+.swiper-pagination {
+    bottom: -30px !important; /* move dots below the card */
 }
 
-.activeDot {
-    background-color: #e0e0e0;
-    transform: scale(1.3);
+.swiper-pagination-bullet {
+    background: #aaa !important;
+    opacity: 0.7;
 }
 
+.swiper-pagination-bullet-active {
+    background: #fff !important;
+    box-shadow: 0 0 6px white;
+}
+
+/* SWIPER ARROWS - outside and white */
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+    color: #fff !important;
+    text-shadow: 0 0 8px white;
+    top: 45%;
+    width: 20px;    /* 👈 reduce this */
+    height: 20px;
+}
+
+:global(.swiper-button-prev) {
+    left: -100px;
+}
+
+:global(.swiper-button-next) {
+    right: -100px;
+}
+
+/* SWIPER DOTS - outside and white */
+:global(.swiper-pagination) {
+    bottom: -30px !important;
+}
+
+:global(.swiper-pagination-bullet) {
+    background: #aaa !important;
+    opacity: 0.7;
+}
+
+:global(.swiper-pagination-bullet-active) {
+    background: #fff !important;
+    box-shadow: 0 0 6px white;
+}

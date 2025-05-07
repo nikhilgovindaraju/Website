@@ -7,6 +7,10 @@ import Skills from './components/skills.jsx';
 import Contact from './components/contact.jsx';
 import Footer from './components/footer.jsx';
 import Stars from './components/stars.jsx';   // ⭐ IMPORT THE STARS COMPONENT
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 
 function App() {
     return (

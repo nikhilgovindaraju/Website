@@ -32,8 +32,8 @@ function Hero() {
                 I love solving real-world problems through clean code, intuitive UI/UX, and cloud-driven applications.
             </p>
 
-            <a href="/NikhilGovindaraju.pdf" className={styles.resumeBtn} download>
-                📄 Download Resume
+            <a href={`${import.meta.env.BASE_URL}NikhilGovindaraju.pdf`} className={styles.resumeBtn} download>
+                📄 Resume
             </a>
             <p className={styles.scrollDown}>↓ Scroll Down to Explore More</p>
         </section>
