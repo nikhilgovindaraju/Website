@@ -12,7 +12,7 @@ function useScrollAnimation() {
                     }
                 });
             },
-            { threshold: 0.1 }
+            { threshold: 0.5 }
         );
 
         sections.forEach(section => {

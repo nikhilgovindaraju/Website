@@ -24,6 +24,7 @@
 h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
 }
 
 h2 {
@@ -66,7 +67,33 @@ h2 {
 }
 
 .scrollDown {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    color: #aaa;
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 60px;
+    animation: floatIn 2s ease-out forwards, pulse 2.5s infinite ease-in-out;
+    opacity: 0;
+}
+
+/* Slide up + fade in */
+@keyframes floatIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse effect */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
 }

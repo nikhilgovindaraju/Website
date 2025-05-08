@@ -1,36 +1,55 @@
-import { useCallback } from "react";
+import React from "react";
 import Particles from "react-tsparticles";
 import { loadStarsPreset } from "tsparticles-preset-stars";
 
-function Stars() {
-    const particlesInit = useCallback(async (engine) => {
+const Stars = () => {
+    const particlesInit = async (engine) => {
         await loadStarsPreset(engine);
-    }, []);
+    };
 
-    const options = {
+    const particlesOptions = {
         preset: "stars",
         background: {
             color: {
-                value: "transparent"   // ✅ THIS IS CRITICAL!
+                value: "#0f0f0f"
+            }
+        },
+        fullScreen: {
+            zIndex: -1
+        },
+        particles: {
+            number: {
+                value: 80,  // 🌟 Reduce star count for subtle effect
+                density: {
+                    enable: true,
+                    area: 800
+                }
+            },
+            size: {
+                value: 1.5,  // 🌟 Smaller stars
+                random: { enable: true, minimumValue: 0.5 }
+            },
+            move: {
+                speed: 0.3,  // 🌟 Slow movement
+                direction: "none",
+                outModes: {
+                    default: "out"
+                }
+            },
+            opacity: {
+                value: 0.7,
+                random: { enable: true, minimumValue: 0.3 },
+                animation: {
+                    enable: true,
+                    speed: 0.5,  // 🌟 Slow twinkle effect
+                    minimumValue: 0.3,
+                    sync: false
+                }
             }
         }
     };
 
-    return (
-        <Particles
-            id="tsparticles"
-            init={particlesInit}
-            options={options}
-            style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                zIndex: -1
-            }}
-        />
-    );
-}
+    return <Particles init={particlesInit} options={particlesOptions} />;
+};
 
 export default Stars;
