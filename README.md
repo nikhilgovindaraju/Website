@@ -1,12 +1,47 @@
-# React + Vite
+# 🚀 Nikhil Govindaraju — Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my **personal portfolio website**, built to showcase my skills, projects, and experience as a Full Stack Engineer, Cloud & ML Enthusiast, and creative technologist.  
+Designed with a premium UI/UX focus, subtle animations, and space-themed aesthetics.
 
-Currently, two official plugins are available:
+👉 **Live Site:** [nikhilgovindaraju.github.io/Website](https://nikhilgovindaraju.github.io/Website)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Responsive Design** — Fully mobile-friendly and optimized for all devices.
+- **Framer Motion Animations** — Smooth scroll and element animations.
+- **Parallax Section Titles** — Dynamic section headings using `react-scroll-parallax`.
+- **Swiper Carousel** — Beautiful swipeable experience cards.
+- **Typewriter Effect** — Interactive text on the hero section.
+- **Custom Scroll Progress Bar** — Shows scroll position elegantly.
+- **Stars Background** — Space theme with subtle animated stars using `tsparticles`.
+- **Scroll-triggered Section Animation** — Lazy load and smooth appearance.
+- **Accessibility First** — Keyboard navigable and screen reader friendly.
+- **SEO Optimized** — For better discoverability.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React 19, Vite
+- **Styling:** CSS Modules, AOS, Swiper, react-scroll-parallax
+- **Animations:** Framer Motion, react-simple-typewriter
+- **Icons & UI:** React Icons, Bootstrap
+- **Graphics:** tsparticles
+- **Version Control & Deployment:** GitHub, GitHub Pages
+
+---
+
+## 🔥 Sections
+
+| Section      | Highlights |
+|--------------|------------|
+| Hero         | Name, roles, dynamic typewriter, profile image |
+| About        | Education, certifications, responsive layout |
+| Experience   | Swiper carousel, animated cards |
+| Projects     | Dynamic cards with technology tags and GitHub links |
+| Skills       | Category-based skill cards |
+| Contact      | Modern form or social links |
+| Footer       | Clean and minimal with copyright |
+
