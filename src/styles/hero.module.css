@@ -7,52 +7,42 @@
     text-align: center;
     padding: 2rem;
     color: #e0e0e0;
-}
-
-.profilePic {
+  }
+  
+  .profilePic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     border: 4px solid #6c63ff;
-    margin-bottom: 1rem;
-}
-
-.name {
+    margin-bottom: 1.5rem;
+  }
+  
+  .name {
     color: #6c63ff;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 2.8rem;
     margin-bottom: 0.5rem;
-    margin-top: 1.5rem;
-}
-
-h2 {
+    margin-top: 1rem;
+    line-height: 1.2;
+  }
+  
+  h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: #cccccc;
-}
-
-.description {
+    line-height: 1.3;
+  }
+  
+  .description {
     max-width: 700px;
     margin-bottom: 1.5rem;
     line-height: 1.6;
     font-size: 1.1rem;
-}
-
-.highlights ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 2rem;
-}
-
-.highlights li {
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
-
-.resumeBtn {
+  }
+  
+  .resumeBtn {
     background-color: #333;
     color: #e0e0e0;
     padding: 0.7rem 1.5rem;
@@ -60,40 +50,77 @@ h2 {
     text-decoration: none;
     font-weight: 500;
     transition: background 0.3s ease;
-}
-
-.resumeBtn:hover {
+  }
+  
+  .resumeBtn:hover {
     background-color: #555;
-}
-
-.scrollDown {
+  }
+  
+  .scrollDown {
     font-size: 1rem;
     color: #ccc;
     margin-top: 60px;
     animation: floatIn 2s ease-out forwards, pulse 2.5s infinite ease-in-out;
     opacity: 0;
-}
-
-/* Slide up + fade in */
-@keyframes floatIn {
+  }
+  
+  @keyframes floatIn {
     0% {
-        opacity: 0;
-        transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
     }
     100% {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-}
-
-/* Pulse effect */
-@keyframes pulse {
+  }
+  
+  @keyframes pulse {
     0%, 100% {
-        opacity: 0.8;
-        transform: translateY(0);
+      opacity: 0.8;
+      transform: translateY(0);
     }
     50% {
-        opacity: 1;
-        transform: translateY(5px);
+      opacity: 1;
+      transform: translateY(5px);
     }
-}
+  }
+  
+  /* 📱 Mobile styles */
+  @media (max-width: 600px) {
+    .heroSection {
+      padding: 2rem 1rem;
+    }
+  
+    .profilePic {
+      width: 110px;
+      height: 110px;
+      margin-bottom: 1rem;
+    }
+  
+    h1 {
+      font-size: 1.6rem;
+      margin-top: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.1rem;
+    }
+  
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+  
+    .resumeBtn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  
+    .scrollDown {
+      font-size: 0.85rem;
+      margin-top: 40px;
+    }
+  }
+  

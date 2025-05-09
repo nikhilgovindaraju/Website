@@ -219,3 +219,19 @@ canvas {
   width: 100% !important;
   height: 100% !important;
 }
+
+
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .scrollDown, .resumeBtn {
+    font-size: 0.9rem;
+  }
+
+  .skillsCard {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -2,10 +2,12 @@
 .experienceSection {
     padding: 80px 20px;
     text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Section Title */
-.experienceSection h2 {
+.experienceTitle {
     font-size: 2.5rem;
     margin-bottom: 40px;
     color: #fff;
@@ -13,21 +15,15 @@
 
 /* Swiper container */
 .experienceSwiper {
-    max-width: 600px;  /* Reduce width */
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
-    padding-bottom: 50px; /* Space for pagination dots */
+    padding: 0 1rem 50px;
     position: relative;
 }
 
 /* Experience Card */
 .experienceCard {
-    /* background-color: #1e1e1e;
-    border-radius: 16px;
-    padding: 30px 20px;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #fff;
-    margin: 0 auto; */
     backdrop-filter: blur(12px);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -35,42 +31,38 @@
     box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
     padding: 2rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
 }
 
 .experienceCard:hover {
-    /* transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15); */
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
-
 }
 
 .experienceLogo {
     height: 60px;
     margin-bottom: 20px;
 }
-.experienceTitle {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #fff;
-}
-
 
 .experienceCard h3 {
     font-size: 1.5rem;
     margin: 10px 0 5px 0;
+    word-break: break-word;
 }
 
 .experienceCard h4 {
     font-size: 1.2rem;
     color: #ccc;
     margin-bottom: 10px;
+    word-break: break-word;
+    line-height: 1.4;
 }
 
 .duration {
     font-style: italic;
     color: #aaa;
     margin-bottom: 15px;
+    font-size: 0.9rem;
 }
 
 .experienceCard ul {
@@ -78,6 +70,7 @@
     margin: 0 auto 15px auto;
     max-width: 90%;
     list-style-type: disc;
+    padding-left: 1rem;
 }
 
 .experienceCard li {
@@ -100,7 +93,6 @@
 }
 
 /* SWIPER ARROWS - outside and white */
-
 .swiper-button-next,
 .swiper-button-prev {
     color: #fff !important;
@@ -111,17 +103,16 @@
 }
 
 .swiper-button-prev {
-    left: -50px; /* push outside the card */
+    left: -50px;
 }
 
 .swiper-button-next {
-    right: -50px; /* push outside the card */
+    right: -50px;
 }
 
 /* SWIPER DOTS - outside and white */
-
 .swiper-pagination {
-    bottom: -30px !important; /* move dots below the card */
+    bottom: -30px !important;
 }
 
 .swiper-pagination-bullet {
@@ -134,13 +125,12 @@
     box-shadow: 0 0 6px white;
 }
 
-/* SWIPER ARROWS - outside and white */
 :global(.swiper-button-next),
 :global(.swiper-button-prev) {
     color: #fff !important;
     text-shadow: 0 0 8px white;
     top: 45%;
-    width: 20px;    /* 👈 reduce this */
+    width: 20px;
     height: 20px;
 }
 
@@ -152,7 +142,6 @@
     right: -100px;
 }
 
-/* SWIPER DOTS - outside and white */
 :global(.swiper-pagination) {
     bottom: -30px !important;
 }
@@ -165,4 +154,51 @@
 :global(.swiper-pagination-bullet-active) {
     background: #fff !important;
     box-shadow: 0 0 6px white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .experienceCard {
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+  }
+
+  .experienceCard h3 {
+    font-size: 1.2rem;
+    word-break: break-word;
+    margin-bottom: 0.3rem;
+  }
+
+  .experienceCard h4 {
+    font-size: 1rem;
+    line-height: 1.4;
+    word-break: break-word;
+  }
+
+  .experienceLogo {
+    height: 45px;
+    margin-bottom: 12px;
+  }
+
+  .duration {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .skillTag {
+    font-size: 0.7rem;
+    padding: 4px 10px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    display: none !important;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: -20px !important;
+  }
 }
