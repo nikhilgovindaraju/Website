@@ -106,6 +106,18 @@
     margin-bottom: 0.5rem;
 }
 
+.certList li a {
+    color: #9acaff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .certList li a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+
 /* Subtle entrance animation */
 @keyframes fadeInUp {
     0% {

@@ -28,8 +28,8 @@ const projects = [
     },
     {
         title: "Secure EHR Audit System",
-        technologies: ["Python", "Flask", "Blockchain", "Bootstrap"],
-        description: "Secure decentralized audit system for healthcare records with cryptographic encryption. Integrated cryptographic security with RSA for digital signatures, AES-128 for log encryption, and hash chaining for tamper detection, session-based login and role-based access control for auditors, doctors, and patients.",
+        technologies: ["Python", "FastAPI", "Blockchain", "AWS/Docker","Supabase", "Redis", "GPT-3","PostgreSQL"],
+        description: "Built a secure EHR platform with AES-256, role-based access, and Redis caching, cutting API latency by 50%, and integrated a GPT-powered chatbot with dynamic FAQs to boost engagement by 60%. Deployed on AWS with Dockerized CI/CD and achieved near-zero downtime.",
         github: "https://github.com/nikhilgovindaraju/SecureDecentralizedAuditSystem",
         image: ehrImg
     },
@@ -40,6 +40,13 @@ const projects = [
     //     github: "https://github.com/nikhilgovindaraju/Portfolio",
     //     image: portfolioImg
     // },
+    {
+        title: "Waste Classification via Transfer Learning",
+        technologies: ["Python", "Keras", "TensorFlow", "Computer Vision", "Transfer Learning","scikit-learn"],
+        description: "Built a 9-class waste image classifier using transfer learning with pre-trained CNNs (ResNet, EfficientNet, VGG), applying Keras/TensorFlow, regularization, and augmentation to achieve high AUC and F1-scores on limited data.",
+        github: "https://github.com/nikhilgovindaraju/SecureDecentralizedAuditSystem",
+        image: portfolioImg
+    },
     {
         title: "Sequence Alignment",
         technologies: ["Python", "Dynamic Programming", "Algorithms"],

@@ -50,7 +50,7 @@ import { Parallax } from 'react-scroll-parallax';
 function Hero() {
     return (
         <section className={styles.heroSection} id="hero">
-            <Parallax speed={-20}>
+            <Parallax speed={-5}>
                 <img
                     src={`${import.meta.env.BASE_URL}profile-pic.png`}
                     alt="Profile"
@@ -94,7 +94,8 @@ function Hero() {
             <a
                 href={`${import.meta.env.BASE_URL}NikhilGovindaraju.pdf`}
                 className={styles.resumeBtn}
-                download
+                target='_blank'
+                rel='noopener noreferrer'
             >
                 📄 Resume
             </a>

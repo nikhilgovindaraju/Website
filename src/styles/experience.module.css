@@ -1,204 +1,271 @@
-/* Experience Section container */
 .experienceSection {
     padding: 80px 20px;
-    text-align: center;
+    background: #0a0a0a;
+    color: white;
     width: 100%;
     box-sizing: border-box;
-}
-
-/* Section Title */
-.experienceTitle {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #fff;
-}
-
-/* Swiper container */
-.experienceSwiper {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 1rem 50px;
+    overflow-x: hidden;
+  }
+  
+  .experienceTitle {
+    font-size: 2.6rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  
+  .swiperContainer {
     position: relative;
-}
-
-/* Experience Card */
-.experienceCard {
-    backdrop-filter: blur(12px);
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+  
+  .experienceSwiper {
+    overflow: visible !important;
+  }
+  
+  .cardWrapper {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .experienceCard {
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
     padding: 2rem;
+    max-width: 850px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #fff;
-}
-
-.experienceCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
-}
-
-.experienceLogo {
-    height: 60px;
-    margin-bottom: 20px;
-}
-
-.experienceCard h3 {
-    font-size: 1.5rem;
-    margin: 10px 0 5px 0;
-    word-break: break-word;
-}
-
-.experienceCard h4 {
+    overflow: visible;
+  }
+  
+  .experienceCard:hover {
+    transform: scale(1.015);
+    box-shadow: 0 14px 35px rgba(255, 255, 255, 0.15);
+  }
+  
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .experienceLogo {
+    height: 80px;
+    width: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  .titleBlock {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .titleBlock h3 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .titleBlock h4 {
     font-size: 1.2rem;
+    font-weight: 500;
     color: #ccc;
-    margin-bottom: 10px;
-    word-break: break-word;
-    line-height: 1.4;
-}
-
-.duration {
-    font-style: italic;
-    color: #aaa;
-    margin-bottom: 15px;
+    margin-bottom: 4px;
+  }
+  
+  .duration {
     font-size: 0.9rem;
-}
-
-.experienceCard ul {
-    text-align: left;
-    margin: 0 auto 15px auto;
-    max-width: 90%;
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+  
+  
+  .experienceContent {
+    padding-left: 0.25rem;
+  }
+  
+  .experienceContent ul {
     list-style-type: disc;
-    padding-left: 1rem;
-}
-
-.experienceCard li {
-    margin-bottom: 8px;
-}
-
-.skills {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #eaeaea;
+    max-width: 95%;
+  }
+  
+  .experienceContent li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .skills {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-}
-
-.skillTag {
-    background-color: #333;
-    border-radius: 12px;
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    color: #ddd;
-}
-
-/* SWIPER ARROWS - outside and white */
-.swiper-button-next,
-.swiper-button-prev {
-    color: #fff !important;
-    text-shadow: 0 0 8px white;
-    top: 45%;
-    width: 40px;
-    height: 40px;
-}
-
-.swiper-button-prev {
-    left: -50px;
-}
-
-.swiper-button-next {
-    right: -50px;
-}
-
-/* SWIPER DOTS - outside and white */
-.swiper-pagination {
-    bottom: -30px !important;
-}
-
-.swiper-pagination-bullet {
-    background: #aaa !important;
-    opacity: 0.7;
-}
-
-.swiper-pagination-bullet-active {
-    background: #fff !important;
-    box-shadow: 0 0 6px white;
-}
-
-:global(.swiper-button-next),
-:global(.swiper-button-prev) {
-    color: #fff !important;
-    text-shadow: 0 0 8px white;
-    top: 45%;
-    width: 20px;
-    height: 20px;
-}
-
-:global(.swiper-button-prev) {
-    left: -100px;
-}
-
-:global(.swiper-button-next) {
-    right: -100px;
-}
-
-:global(.swiper-pagination) {
-    bottom: -30px !important;
-}
-
-:global(.swiper-pagination-bullet) {
-    background: #aaa !important;
-    opacity: 0.7;
-}
-
-:global(.swiper-pagination-bullet-active) {
-    background: #fff !important;
-    box-shadow: 0 0 6px white;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-  .experienceCard {
-    padding: 1rem;
-    font-size: 0.9rem;
-    border-radius: 12px;
+    gap: 10px;
   }
-
-  .experienceCard h3 {
-    font-size: 1.2rem;
-    word-break: break-word;
-    margin-bottom: 0.3rem;
-  }
-
-  .experienceCard h4 {
-    font-size: 1rem;
-    line-height: 1.4;
-    word-break: break-word;
-  }
-
-  .experienceLogo {
-    height: 45px;
-    margin-bottom: 12px;
-  }
-
-  .duration {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-  }
-
+  
   .skillTag {
-    font-size: 0.7rem;
-    padding: 4px 10px;
+    background-color: #1f1f1f;
+    color: #ddd;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+  }
+  
+  .skillTag:hover {
+    background-color: #333;
+    transform: scale(1.05);
   }
 
-  .swiper-button-next,
-  .swiper-button-prev,
-  :global(.swiper-button-next),
-  :global(.swiper-button-prev) {
-    display: none !important;
+  /* Left align bullet points */
+  .achievementList {
+    list-style-position: outside;      /* Keeps bullet outside text */
+    padding-left: 1.5rem;              /* Indents whole list */
+    margin-bottom: 1.2rem;
+    color: #eaeaea;
+    max-width: 95%;
+    text-align: left;
+  }
+  
+  .achievementList li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 0.25rem;             /* Aligns text without shifting bullets */
+    text-indent: -0.25rem;             /* Pulls first line into alignment with bullet */
   }
 
-  :global(.swiper-pagination) {
-    bottom: -20px !important;
+  .swipeHint {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ccc;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    font-style: italic;
+    animation: fadeInUp 0.4s ease-in;
   }
+  
+  .swipeArrow {
+    color: white;
+    font-weight: 600;
+    animation: pulse 2s infinite;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+  
+  
+  
+
+/* Center align skills below */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
+
+  
+  /* Custom Arrow Styling */
+  .arrow {
+    color: white !important;
+    filter: drop-shadow(0 0 6px white);
+    position: absolute;
+    top: 45%;
+    z-index: 10;
+  }
+  
+  .swiper-button-prev.custom-prev {
+    left: -50px;
+  }
+  
+  .swiper-button-next.custom-next {
+    right: -50px;
+  }
+  
+  /* Swiper Dots */
+  .swiper-pagination {
+    bottom: -15px !important;
+  }
+  
+  .swiper-pagination-bullet {
+    background: #fff !important;
+    opacity: 0.4;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: #fff !important;
+    opacity: 1;
+    box-shadow: 0 0 6px white;
+  }
+  
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .experienceCard {
+      padding: 1.5rem;
+    }
+  
+    .experienceTitle {
+      font-size: 2rem;
+    }
+  
+    .experienceLogo {
+      height: 60px;
+      width: 60px;
+    }
+  
+    .titleBlock h3 {
+      font-size: 1.4rem;
+    }
+  
+    .titleBlock h4 {
+      font-size: 1rem;
+    }
+  
+    .skillTag {
+      font-size: 0.7rem;
+      padding: 4px 10px;
+    }
+  
+    .arrow {
+      display: none !important;
+    }
+  }
+  
