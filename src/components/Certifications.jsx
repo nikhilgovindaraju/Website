@@ -20,7 +20,7 @@ const CERTS = [
     organization: "Oracle",
     issued: "2024",
     image: oci,
-    link: "https://example.com/oci",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["Cloud", "Oracle", "AI"]
   },
   {
@@ -28,7 +28,7 @@ const CERTS = [
     organization: "AWS",
     issued: "2025",
     image: aws,
-    link: "https://example.com/aws",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["Cloud", "AWS"]
   },
   {
@@ -36,7 +36,7 @@ const CERTS = [
     organization: "Scrum Alliance",
     issued: "2024",
     image: scrum,
-    link: "https://example.com/scrum",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["Agile", "Scrum"]
   },
   {
@@ -44,7 +44,7 @@ const CERTS = [
     organization: "LinkedIn Learning",
     issued: "2025",
     image: reactImg,
-    link: "https://example.com/react",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["Frontend", "React"]
   },
   {
@@ -52,7 +52,7 @@ const CERTS = [
     organization: "Udemy",
     issued: "2024",
     image: angular,
-    link: "https://example.com/angular",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["Frontend", "Angular"]
   },
   {
@@ -60,7 +60,7 @@ const CERTS = [
     organization: "PMI",
     issued: "2025",
     image: pmi,
-    link: "https://example.com/embedded",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["SDLC", "Project Management"]
   },
   {
@@ -68,15 +68,15 @@ const CERTS = [
     organization: "Comptia",
     issued: "2025",
     image: agile,
-    link: "https://example.com/embedded",
-    tags: ["Systems"]
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
+    tags: ["Agile", "Software Development"]
   },
   {
     title: "Machine Learning & AI",
     organization: "Nasscom Foundation",
     issued: "2020",
     image: nasscom,
-    link: "https://example.com/ml",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["ML/AI"]
   },
   {
@@ -84,7 +84,7 @@ const CERTS = [
     organization: "AWS",
     issued: "2020",
     image: cloudnative,
-    link: "https://example.com/aws-fund",
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
     tags: ["Cloud", "AWS"]
   },
   {
@@ -92,8 +92,8 @@ const CERTS = [
     organization: "Udemy",
     issued: "2021",
     image: flutter,
-    link: "https://example.com/embedded",
-    tags: ["Systems"]
+    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
+    tags: ["Mobile app", "Development", "Dart"]
   }
 ];
 
