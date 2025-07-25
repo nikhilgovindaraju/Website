@@ -9,6 +9,8 @@ import digitImg from '../assets/digitrecognition.png';
 import portfolioImg from '../assets/portfolio.png';
 import seqalignImg from '../assets/seqalign.png';
 import routeItImg from '../assets/routeit.png';
+import transferLearning from '../assets/transferlearning.png';
+import amazonLogo from '../assets/amazon.png';
 
 
 const projects = [
@@ -33,19 +35,26 @@ const projects = [
         github: "https://github.com/nikhilgovindaraju/SecureDecentralizedAuditSystem",
         image: ehrImg
     },
-    // {
-    //     title: "Personal Portfolio",
-    //     technologies: ["React", "CSS Modules", "Framer Motion"],
-    //     description: "Fully responsive portfolio showcasing projects, skills, and work experience using modern web technologies.",
-    //     github: "https://github.com/nikhilgovindaraju/Portfolio",
-    //     image: portfolioImg
-    // },
+    {
+        title: "Distributed Order Fulfillment Platform",
+        technologies: ['Java', 'Spring Boot', 'Apache Kafka',' Node.js','MongoDB','Docker','Kubernetes'],
+        description: "Built a scalable microservices platform simulating Amazon's fulfillment flow with Kafka-driven event handling, predictive restocking in Node.js, and resilient containerized infrastructure using Kubernetes, DLQs, and circuit breakers.",
+        github: "https://github.com/nikhilgovindaraju/Portfolio",
+        image: amazonLogo
+    },
+    {
+        title: "Personal Portfolio Website",
+        technologies: ["React", "CSS Modules", "Framer Motion", "Responsive Design", "GitHub Pages"],
+        description: "Fully responsive portfolio showcasing projects, skills, and work experience using modern web technologies.",
+        github: "https://github.com/nikhilgovindaraju/Portfolio",
+        image: portfolioImg
+    },
     {
         title: "Waste Classification via Transfer Learning",
         technologies: ["Python", "Keras", "TensorFlow", "Computer Vision", "Transfer Learning","scikit-learn"],
         description: "Built a 9-class waste image classifier using transfer learning with pre-trained CNNs (ResNet, EfficientNet, VGG), applying Keras/TensorFlow, regularization, and augmentation to achieve high AUC and F1-scores on limited data.",
         github: "https://github.com/nikhilgovindaraju/SecureDecentralizedAuditSystem",
-        image: portfolioImg
+        image: transferLearning
     },
     {
         title: "Sequence Alignment",

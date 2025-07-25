@@ -24,19 +24,6 @@
 }
 
 .projectCard {
-    /* background-color: #1e1e1e;
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    min-height: 400px;  
-    border: 2px solid transparent;
-    position: relative; */
 
     backdrop-filter: blur(12px);
     background: rgba(255, 255, 255, 0.05);
@@ -54,9 +41,7 @@
 }
 
 .projectCard:hover {
-    /* transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
-    border: 2px solid #555; */
+
     transform: translateY(-10px);
     box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
 }

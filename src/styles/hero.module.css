@@ -1,141 +1,97 @@
 .heroSection {
-    min-height: 100vh;
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    color: #e0e0e0;
-  }
-  
+  padding: 1rem 2rem 2rem; /* reduced top padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.imageContainer {
+  margin-top: 1rem;  /* tighter spacing above the image */
+  margin-bottom: 5rem;
+}
+
+.profilePic {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
+  border: 3px solid #333;
+}
+
+.textContent {
+  max-width: 800px;
+  padding: 1.5rem;
+}
+
+.name {
+  color: #6c63ff;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.3rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #a0a0ff;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.typewriterWrapper {
+  height: 2.5rem; /* adjust as needed based on font size and emoji */
+  display: inline-block;
+}
+
+
+.description {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.resumeBtn,
+.workBtn {
+  background-color: #333;
+  color: #e0e0e0;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.resumeBtn:hover,
+.workBtn:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
   .profilePic {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    border: 5px solid transparent;
-    background-image: linear-gradient(145deg, #6c63ff, #00ffe7);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    padding: 4px;
-  
-    box-shadow: 0 10px 25px rgba(108, 99, 255, 0.4),
-                0 0 20px rgba(0, 255, 231, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 140px;
+    height: 140px;
   }
-  
-  .profilePic:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(108, 99, 255, 0.6),
-                0 0 30px rgba(0, 255, 231, 0.5);
-  }
-  
-  
-  .name {
-    color: #6c63ff;
-  }
-  
+
   h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-    margin-top: 1rem;
-    line-height: 1.2;
+    font-size: 2rem;
   }
-  
+
   h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #cccccc;
-    line-height: 1.3;
+    font-size: 1.2rem;
   }
-  
+
   .description {
-    max-width: 700px;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
   }
-  
-  .resumeBtn {
-    background-color: #333;
-    color: #e0e0e0;
-    padding: 0.7rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: background 0.3s ease;
-  }
-  
-  .resumeBtn:hover {
-    background-color: #555;
-  }
-  
-  .scrollDown {
-    font-size: 1rem;
-    color: #ccc;
-    margin-top: 60px;
-    animation: floatIn 2s ease-out forwards, pulse 2.5s infinite ease-in-out;
-    opacity: 0;
-  }
-  
-  @keyframes floatIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.8;
-      transform: translateY(0);
-    }
-    50% {
-      opacity: 1;
-      transform: translateY(5px);
-    }
-  }
-  
-  /* 📱 Mobile styles */
-  @media (max-width: 600px) {
-    .heroSection {
-      padding: 2rem 1rem;
-    }
-  
-    .profilePic {
-      width: 110px;
-      height: 110px;
-      margin-bottom: 1rem;
-    }
-  
-    h1 {
-      font-size: 1.6rem;
-      margin-top: 1rem;
-    }
-  
-    h2 {
-      font-size: 1.1rem;
-    }
-  
-    .description {
-      font-size: 0.95rem;
-      line-height: 1.4;
-      margin-bottom: 1.5rem;
-    }
-  
-    .resumeBtn {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-    }
-  
-    .scrollDown {
-      font-size: 0.85rem;
-      margin-top: 40px;
-    }
-  }
-  
+}

@@ -1,153 +1,141 @@
 .aboutSection {
     min-height: 100vh;
-    padding: 4rem 2rem;
+    padding: 2rem 0;
+    text-align: center;
+    color: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 2rem 4rem; /* reduced top padding */
+  }
+  
+  .aboutSection h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .summary {
+    max-width: 1000px;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #ccc;
+  }
+  
+  .highlight {
+    color: #6c63ff;
+    font-weight: bold;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 80%;
+    max-width: 1200px;
+  }
+  
+  .flipCard {
+    perspective: 1200px;
+    height: 380px;
+    position: relative;
+  }
+  
+  .flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+  }
+  
+  .flipCard:hover .flipCardInner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front and back card styling */
+  .flipCardFront,
+  .flipCardBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    color: #e0e0e0;
-    text-align: center;
-}
-
-.aboutSection h2 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-}
-
-.aboutSection h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    margin: 0.5rem auto;
-    background: linear-gradient(90deg, #4e91fc, #9c6bff, #4e91fc);
-    border-radius: 2px;
-    animation: twinkle 5s ease infinite;
-}
-
-@keyframes twinkle {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.intro {
-    max-width: 800px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 3rem;
-}
-
-/* ---------- EDUCATION SECTION ---------- */
-
-.subSection {
-    margin-bottom: 3rem;
-    width: 90%;
-    max-width: 1000px;
-}
-
-.subSection h3 {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #333;
-    padding-bottom: 0.5rem;
-    text-align: left;
-}
-
-.eduList {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.eduItem {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-align: left;
-}
-
-.eduItem img {
-    width: 60px;
-    height: 60px;
+    backface-visibility: hidden;
+  }
+  
+  .flipCardBack {
+    transform: rotateY(180deg);
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  /* Logo image */
+  .eduImage {
+    width: 100%;
+    height: 150px;
     object-fit: contain;
-    border-radius: 8px;
-    transition: transform 0.4s ease;
-}
-
-.eduItem img:hover {
-    transform: scale(1.05);
-}
-
-.eduDetails h4 {
-    font-size: 1.4rem;
-    margin: 0;
-}
-
-.eduDetails p {
-    margin: 0;
-    color: #aaa;
-    font-size: 1rem;
-}
-
-/* ---------- CERTIFICATIONS ---------- */
-
-.certList {
-    list-style-type: disc;
-    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 20px; /* match card roundness */
+  }
+  
+  /* Text styling */
+  .university {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+  }
+  
+  .degree {
+    font-size: 1.5rem;
+    color: #aad4ff;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+  
+  .gpa {
+    font-size: 1.3rem;
+    color: #cccccc;
+  }
+  
+  /* Coursework styles */
+  .courseworkHeading {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+  }
+  
+  .courseList {
+    list-style: disc;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    color: #dddddd;
     text-align: left;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.certList li {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.certList li a {
-    color: #9acaff;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    line-height: 1.5;
   }
   
-  .certList li a:hover {
-    color: #fff;
-    text-decoration: underline;
-  }
-  
-
-/* Subtle entrance animation */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 600px) {
-    .eduItem {
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
   
-    .eduItem img {
-      margin-bottom: 0.5rem;
-    }
-  
-    .eduDetails h4 {
-      font-size: 1.1rem;
-      line-height: 1.4;
-    }
-  
-    .eduDetails p {
-      font-size: 0.9rem;
+    .flipCard {
+      height: auto;
     }
   }
   

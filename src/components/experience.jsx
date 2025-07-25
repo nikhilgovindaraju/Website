@@ -253,15 +253,15 @@
 // };
 
 // export default Experience;
-
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import styles from '../styles/experience.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { Parallax } from 'react-scroll-parallax';
+import { Navigation, Pagination } from 'swiper/modules';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import exinousLogo from '../assets/exinous.png';
 import boschLogo from '../assets/bosch.png';
@@ -270,122 +270,108 @@ import jubilantLogo from '../assets/jubilant.png';
 
 const experiences = [
   {
-    role: 'Software Engineer Intern',
+    role: 'Software Engineering Intern',
     company: 'Jubilant HollisterStier LLC',
     duration: 'May 2025 – Aug 2025',
     image: jubilantLogo,
     achievements: [
-      'Leading development of a MERN-based workforce analytics platform with real-time dashboards for business insights.',
-      'Designed RESTful APIs and MongoDB schemas to enable flexible querying across roles, tasks, and locations.',
-      'Optimizing large-scale SQL queries and indexes to accelerate data retrieval in high-traffic environments.',
-      'Supporting backup automation and collaborating on schema redesign to enhance system resilience.'
+      'Architected and deployed TimeStudy, a cloud-native analytics platform for real-time task management',
+      'Integrated JWT-based role access for secure, real-time task insights and analytics',
+      'Designed PostgreSQL schemas and built RESTful APIs with authentication and authorization',
+      'Developed unit-tested backend services and interactive dashboards',
+      'Enabled scalability and future ML integration with modular API and data design'
     ],
-    skills: ['React.js', 'JavaScript', 'MongoDB', 'AWS', 'Agile Development', 'SQL', 'DBMS', 'RESTful APIs']
+    skills: ['Next.js', 'PostgreSQL', 'AWS', 'Node.js', 'RESTful APIs & JWT', 'CI/CD']
   },
   {
     role: 'Software Development Engineer',
-    company: 'Exinous Technologies India Pvt Ltd',
+    company: 'Exinous Technologies',
     duration: 'Sep 2022 – Nov 2023',
     image: exinousLogo,
     achievements: [
-      'Built and optimized Navipoint Health website using React.js focusing on performance and accessibility.',
-      'Developed dynamic, reusable front-end components using Vue.js and TypeScript for a client ERP system.',
-      'Validated RESTful APIs using Postman and contributed to daily Scrum practices with CI integration.',
-      'Automated functional tests with Cypress, reducing QA cycles by 75%.'
+      'Revamped Navipoint Health website with React.js and SEO optimizations, boosting performance and accessibility.',
+      'Developed reusable Vue.js + TypeScript ERP components reducing maintenance overhead by 30%',
+      'Accelerated delivery of multimodule features by 25% through component standardization and collaborative code reviews',
+      'Validated RESTful APIs using Postman, enhancing API reliability and performance.',
     ],
-    skills: ['React.js', 'Vue.js', 'TypeScript', 'Postman', 'Cypress', 'Scrum', 'Git', 'CI/CD']
+    skills: ['React.js', 'Postman', 'TypeScript', 'Github','Agile Methodolgies']
   },
   {
     role: 'Associate Software Engineer',
-    company: 'Bosch Global Software Technologies',
-    duration: 'June 2021 - Sep 2022',
+    company: 'Bosch Global Software Tech',
+    duration: 'June 2021 – Sep 2022',
     image: boschLogo,
     achievements: [
-      'Developed and automated test scripts using Python and Shell for Linux-based embedded systems.',
-      'Identified and documented critical defects using Pytest, GitLab, SVN, and Codebeamer.',
-      'Served as a Bosch Campus Ambassador promoting company initiatives and university engagement.'
+      'Built Python & Shell diagnostic tools for embedded Linux (Bosch D-tect 200), improving system performance.',
+      'Enhanced C++ firmware for real-time sensor data rendering, delivering smoother UI responsiveness',
+      'Designed health-check utilities for field diagnostics and faster fault recovery in embedded units',
+      'Contributed to production-ready firmware upgrades across industrial product lines'
     ],
-    skills: ['Python', 'Shell', 'Linux', 'Pytest', 'GitLab', 'SVN', 'Embedded Systems']
+    skills: ['Python', 'Shell Scripting', 'Embedded Linux', 'C++', 'Embedded Systems', 'GitLab']
   },
   {
-    role: 'Software Engineer Intern',
-    company: 'Robert Bosch Engineering and Business Solutions',
-    duration: 'March 2021 - June 2021',
+    role: 'Software Engineering Intern',
+    company: 'Robert Bosch Engineering',
+    duration: 'March 2021 – June 2021',
     image: boschLogo,
     achievements: [
-      'Designed and executed automation test scripts for the Bosch MeasureOn Android app using Java.',
-      'Used Appium, UI Automator, and Maven within Android Studio to improve test coverage.'
+      'Developed and automated test workflows for the Bosch MeasrOn Android app using Java, Appium, and UIAutomator, ensuring consistent cross-platform reliability and reducing manual QA effort',
+      'Designed scalable mobile test cases in Android Studio, gaining hands-on expertise in mobile app development lifecycles, debugging, and test-driven development (TDD)'
     ],
-    skills: ['Java', 'Appium', 'UI Automator', 'Maven', 'Android Studio']
+    skills: ['Java', 'Appium', 'Android Studio', 'Automation Testing']
   },
   {
-    role: 'Python Programming Intern',
-    company: 'Codespeedy Technology Pvt Ltd',
-    duration: 'August 2019 - Jan 2020',
+    role: 'Python Intern',
+    company: 'Codespeedy Technology',
+    duration: 'Aug 2019 – Jan 2020',
     image: codespeedyLogo,
     achievements: [
-      'Created Python programming tutorials and coding solutions for learners.',
-      'Authored technical articles covering algorithms, data structures, and Python applications.',
-      'Improved the platform’s SEO and user engagement with quality content creation.'
+      'Developed beginner-friendly Python scripts and annotated examples to teach fundamental programming concepts clearly and effectively',
+      'Authored educational content and simplified complex logic into accessible formats, increasing learner engagement and comprehension',
+      'Strengthened communication skills by translating complex engineering topics into digestible learning modules for new programmers'
     ],
-    skills: ['Python', 'Technical Writing', 'Content Creation', 'Algorithms', 'SEO']
+    skills: ['Python', 'Technical Writing', 'DSA', 'Problem Solving', 'Content Creation']
   }
 ];
 
 const Experience = () => {
-  const swiperRef = useRef(null);
-
   return (
     <section className={styles.experienceSection} id="experience">
-      <Parallax speed={3}>
-        <h2 className={styles.experienceTitle}>Work Experience</h2>
-      </Parallax>
-
-      <div className={styles.swiperContainer}>
-        <Swiper
-          ref={swiperRef}
-          modules={[Pagination]}
-          pagination={{ clickable: true }}
-          spaceBetween={30}
-          slidesPerView={1}
-          className={styles.experienceSwiper}
-        >
-          {experiences.map((exp, index) => (
-            <SwiperSlide key={index}>
-              <div className={styles.cardWrapper}>
-                <div className={styles.experienceCard}>
-                  <div className={styles.cardHeader}>
-                    <img src={exp.image} alt={exp.company} className={styles.experienceLogo} />
-                    <div className={styles.titleBlock}>
-                      <h3>{exp.role}</h3>
-                      <h4>{exp.company}</h4>
-                      <p className={styles.duration}>{exp.duration}</p>
-                    </div>
-                  </div>
-                  <div className={styles.experienceContent}>
-                    <ul className={styles.achievementList}>
-                      {exp.achievements.map((achievement, i) => (
-                        <li key={i}>{achievement}</li>
-                      ))}
-                    </ul>
-                    <div className={styles.skills}>
-                      {exp.skills.map((skill, i) => (
-                        <span key={i} className={styles.skillTag}>{skill}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+      <h2 className={styles.title}>WORK EXPERIENCE</h2>
+      <Swiper
+        modules={[Navigation, Pagination]}
+        navigation={{
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }}
+        pagination={{ clickable: true }}
+        loop={true}
+        centeredSlides={true}
+        spaceBetween={30}
+        slidesPerView={1}
+        className={styles.swiper}
+      >
+        {experiences.map((exp, index) => (
+          <SwiperSlide key={index}>
+            <div className={styles.card}>
+              <img src={exp.image} alt={exp.company} className={styles.logo} />
+              <h3 className={styles.company}>{exp.company}</h3>
+              <p className={styles.duration}>{exp.duration}</p>
+              <h4 className={styles.role}>{exp.role}</h4>
+              <ul className={styles.achievementList}>
+                {exp.achievements.map((a, i) => <li key={i}>{a}</li>)}
+              </ul>
+              <div className={styles.skillTags}>
+                {exp.skills.map((skill, i) => (
+                  <span key={i}>{skill}</span>
+                ))}
               </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <div className={styles.swipeHint}>
-  <span className={styles.swipeArrow}>Swipe &lt;&lt;</span>
-  <span className={styles.swipeArrow}>Swipe &gt;&gt;</span>
-</div>
-
-      </div>
+            </div>
+          </SwiperSlide>
+        ))}
+        <div className={`swiper-button-prev ${styles.arrow}`}><FaArrowLeft /></div>
+        <div className={`swiper-button-next ${styles.arrow}`}><FaArrowRight /></div>
+      </Swiper>
     </section>
   );
 };

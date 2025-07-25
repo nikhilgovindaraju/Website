@@ -43,6 +43,7 @@ import Projects from './components/projects.jsx';
 import Skills from './components/skills.jsx';
 import Contact from './components/contact.jsx';
 import Footer from './components/footer.jsx';
+import Certifications from './components/Certifications.jsx';
 import { motion, useScroll } from 'framer-motion';
 
 import 'swiper/css';
@@ -76,6 +77,7 @@ function App() {
                 <section id="about"><About /></section>
                 <section id="experience"><Experience /></section>
                 <section id="projects"><Projects /></section>
+                <section id="certifications"><Certifications /></section>
                 <section id="skills"><Skills /></section>
                 <section id="contact"><Contact /></section>
             </main>

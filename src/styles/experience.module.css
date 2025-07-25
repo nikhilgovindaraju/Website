@@ -1,271 +1,168 @@
 .experienceSection {
-    padding: 80px 20px;
-    background: #0a0a0a;
-    color: white;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-  
-  .experienceTitle {
-    font-size: 2.6rem;
-    margin-bottom: 2.5rem;
-    text-align: center;
-    font-weight: 600;
-  }
-  
-  .swiperContainer {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-    overflow: visible;
-  }
-  
-  .experienceSwiper {
-    overflow: visible !important;
-  }
-  
-  .cardWrapper {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .experienceCard {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 2rem;
-    max-width: 850px;
-    width: 100%;
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: visible;
-  }
-  
-  .experienceCard:hover {
-    transform: scale(1.015);
-    box-shadow: 0 14px 35px rgba(255, 255, 255, 0.15);
-  }
-  
-  .cardHeader {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .experienceLogo {
-    height: 80px;
-    width: 100px;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  
-  .titleBlock {
-    text-align: center;
-    flex: 1;
-  }
-  
-  .titleBlock h3 {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-  
-  .titleBlock h4 {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #ccc;
-    margin-bottom: 4px;
-  }
-  
-  .duration {
-    font-size: 0.9rem;
-    color: #aaa;
-    font-style: italic;
-    margin-bottom: 0.5rem;
-  }
-  
-  
-  .experienceContent {
-    padding-left: 0.25rem;
-  }
-  
-  .experienceContent ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    margin-bottom: 1.2rem;
-    color: #eaeaea;
-    max-width: 95%;
-  }
-  
-  .experienceContent li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-  
-  .skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .skillTag {
-    background-color: #1f1f1f;
-    color: #ddd;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-    border: 1px solid #333;
-  }
-  
-  .skillTag:hover {
-    background-color: #333;
-    transform: scale(1.05);
-  }
-
-  /* Left align bullet points */
-  .achievementList {
-    list-style-position: outside;      /* Keeps bullet outside text */
-    padding-left: 1.5rem;              /* Indents whole list */
-    margin-bottom: 1.2rem;
-    color: #eaeaea;
-    max-width: 95%;
-    text-align: left;
-  }
-  
-  .achievementList li {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    padding-left: 0.25rem;             /* Aligns text without shifting bullets */
-    text-indent: -0.25rem;             /* Pulls first line into alignment with bullet */
-  }
-
-  .swipeHint {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #ccc;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
-    font-style: italic;
-    animation: fadeInUp 0.4s ease-in;
-  }
-  
-  .swipeArrow {
-    color: white;
-    font-weight: 600;
-    animation: pulse 2s infinite;
-    font-style: normal;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-  
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.6;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-  }
-  
-  
-  
-
-/* Center align skills below */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+  padding: 1rem 2rem 4rem;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
 }
 
-  
-  /* Custom Arrow Styling */
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.swiper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 2rem 4rem;
+  position: relative;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 600px;
+  width: 100%;
+}
+
+/* .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+} */
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.logo {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+  border-radius: 20%;
+  margin-bottom: 0.5rem;
+}
+
+.roleBlock {
+  text-align: center;
+}
+
+.role {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 0.2rem;
+}
+
+.company {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.2rem;
+}
+
+.duration {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #999999;
+}
+
+.achievementList {
+  list-style:square;
+  text-align: left;
+  margin-top: 3rem;
+  padding-left: 1rem;
+  color: #e0e0e0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.skillTags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 4rem;
+}
+
+.skillTags span {
+  background-color: #1e1e1e;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: 1px solid #444;
+  transition: all 0.3s ease;
+}
+
+.skillTags span:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
+/* Arrows */
+.arrow {
+  color: white;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem;
+  border-radius: 50%;
+}
+
+
+.swiper-button-prev {
+  left: -60px;
+}
+
+.swiper-button-next {
+  right: -600px;
+}
+
+/* Dots */
+.swiper-pagination-bullet {
+  background-color: #aaa;
+  opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: white;
+  opacity: 1;
+  box-shadow: 0 0 6px white;
+}
+
+@media (max-width: 768px) {
   .arrow {
-    color: white !important;
-    filter: drop-shadow(0 0 6px white);
-    position: absolute;
-    top: 45%;
-    z-index: 10;
+    display: none;
   }
-  
-  .swiper-button-prev.custom-prev {
-    left: -50px;
+
+  .card {
+    padding: 1.5rem;
   }
-  
-  .swiper-button-next.custom-next {
-    right: -50px;
+
+  .role {
+    font-size: 1.2rem;
   }
-  
-  /* Swiper Dots */
-  .swiper-pagination {
-    bottom: -15px !important;
+
+  .company {
+    font-size: 1rem;
   }
-  
-  .swiper-pagination-bullet {
-    background: #fff !important;
-    opacity: 0.4;
+
+  .duration {
+    font-size: 0.9rem;
   }
-  
-  .swiper-pagination-bullet-active {
-    background: #fff !important;
-    opacity: 1;
-    box-shadow: 0 0 6px white;
+
+  .achievementList {
+    font-size: 0.9rem;
   }
-  
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .experienceCard {
-      padding: 1.5rem;
-    }
-  
-    .experienceTitle {
-      font-size: 2rem;
-    }
-  
-    .experienceLogo {
-      height: 60px;
-      width: 60px;
-    }
-  
-    .titleBlock h3 {
-      font-size: 1.4rem;
-    }
-  
-    .titleBlock h4 {
-      font-size: 1rem;
-    }
-  
-    .skillTag {
-      font-size: 0.7rem;
-      padding: 4px 10px;
-    }
-  
-    .arrow {
-      display: none !important;
-    }
-  }
-  
+}

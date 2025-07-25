@@ -31,7 +31,7 @@ main {
 }
 
 section {
-  min-height: calc(100vh - 80px);  /* Adjusted to avoid overflow */
+    /* Adjusted to avoid overflow */
   padding: 4rem 2rem 6rem 2rem;    /* Bottom padding increased */
   display: flex;
   flex-direction: column;
