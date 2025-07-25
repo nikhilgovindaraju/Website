@@ -5,7 +5,7 @@ function Contact() {
     return (
         <section id="contact" className={styles.contactSection}>
             <h2>Let’s Connect</h2>
-            <p>I’m open to full-time SDE roles and always excited to collaborate on impactful projects.</p>
+            <p>I’m open to Fall 2025 Co-ops and Full-time Roles and always excited to collaborate on impactful projects.</p>
 
             <div className={styles.buttonsContainer}>
                 <a href="mailto:ngovinda@usc.edu" className={styles.contactBtn}>

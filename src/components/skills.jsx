@@ -67,7 +67,7 @@
 
 // export default Skills;
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import styles from '../styles/skills.module.css';
@@ -155,13 +155,20 @@ const categories = [
       { name: 'Seaborn', iconClass: 'devicon-seaborn-plain' },
     ],
   },
-  
-  
-
 ];
 
 export default function SkillsSection() {
   const [expanded, setExpanded] = useState({});
+
+  // Auto-expand everything on small screens
+  useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobile) {
+      const allOpen = {};
+      categories.forEach((_, idx) => (allOpen[idx] = true));
+      setExpanded(allOpen);
+    }
+  }, []);
 
   const toggleCard = (index) => {
     setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
@@ -174,42 +181,42 @@ export default function SkillsSection() {
       <div className={styles.skillsGrid}>
         {categories.map((category, index) => {
           const isOpen = !!expanded[index];
-
           return (
-          <div key={index} className={styles.skillCard}>
-            <h3 className={styles.categoryTitle}>{category.title}</h3>
+            <div key={index} className={styles.skillCard}>
+              <h3 className={styles.categoryTitle}>{category.title}</h3>
 
-            <AnimatePresence>
-              {isOpen && (
-                <motion.div
-                  className={styles.skillTags}
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.35 }}
-                >
-                  {category.skills.map((skill, i) => (
-                    <div key={i} className={styles.skillTag}>
-                      {skill.iconClass && (
-                        <i className={`${skill.iconClass} colored ${styles.devIcon}`}></i>
-                      )}
-                      {skill.name}
-                    </div>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    className={styles.skillTags}
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {category.skills.map((skill, i) => (
+                      <div key={i} className={styles.skillTag}>
+                        {skill.iconClass && (
+                          <i className={`${skill.iconClass} colored ${styles.devIcon}`}></i>
+                        )}
+                        {skill.name}
+                      </div>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
 
-            {/* Bottom clickable footer */}
-            <button
-              className={styles.cardFooter}
-              onClick={() => toggleCard(index)}
-              aria-label={`Toggle ${category.title}`}
-            >
-              {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-            </button>
-          </div>
-        )})}
+              {/* Footer toggle is hidden on mobile via CSS */}
+              <button
+                className={styles.cardFooter}
+                onClick={() => toggleCard(index)}
+                aria-label={`Toggle ${category.title}`}
+              >
+                {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+              </button>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

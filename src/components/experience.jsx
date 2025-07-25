@@ -346,8 +346,7 @@ const Experience = () => {
         }}
         pagination={{ clickable: true }}
         loop={true}
-        centeredSlides={true}
-        spaceBetween={30}
+        spaceBetween={20}
         slidesPerView={1}
         className={styles.swiper}
       >

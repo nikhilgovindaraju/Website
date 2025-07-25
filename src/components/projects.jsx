@@ -82,7 +82,7 @@ const projects = [
 const Projects = () => {
     return (
         <section className={styles.projectsSection} id="projects">
-            <h2>Projects</h2>
+            <h2>PROJECTS</h2>
             <div className={styles.grid}>
                 {projects.map((proj, index) => (
                     <div key={index} className={styles.projectCard}>
