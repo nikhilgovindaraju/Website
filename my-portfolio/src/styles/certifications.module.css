@@ -1,0 +1,257 @@
+.section {
+  padding: 4rem 2rem 5rem;
+  color: #e0e0e0;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.6rem;
+  margin-bottom: 2.2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #1e1e1e;
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(255,255,255,0.06);
+  border: 1px solid transparent;
+  cursor: zoom-in;
+  transition: transform .28s ease, box-shadow .28s ease, border .28s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.imageBox {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #111;
+}
+
+.imageBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.card:hover .imageBox img {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: opacity .25s ease;
+}
+
+.card:hover .imageOverlay {
+  opacity: 1;
+}
+
+.yearBadge {
+  position: absolute;
+  top: .6rem;
+  left: .6rem;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: .75rem;
+  padding: .2rem .45rem;
+  border-radius: 6px;
+}
+
+.meta {
+  padding: 1rem 1rem 1.2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.org {
+  color: #6c63ff;
+  font-weight: 500;
+  font-size: .9rem;
+  margin-bottom: 0.5rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  justify-content: center;
+  margin-top: .2rem;
+}
+
+.tag {
+  background: #2a2a2a;
+  color: #ccc;
+  font-size: .72rem;
+  padding: .15rem .5rem;
+  border-radius: 9999px;
+}
+
+.credentialBtn {
+  margin-top: auto;  /* ensures it stays at the bottom */
+  padding: .5rem 1rem;
+  font-size: .85rem;
+  background: transparent;
+  border: 1px solid #6c63ff;
+  color: #6c63ff;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all .22s ease;
+}
+
+.credentialBtn:hover {
+  background: #6c63ff;
+  color: #000;
+}
+
+.toggleContainer {
+  margin-top: 2rem;
+}
+
+.toggleBtn {
+  padding: 0.6rem 1.4rem;
+  background: transparent;
+  border: 2px solid #6c63ff;
+  color: #6c63ff;
+  border-radius: 9999px;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .22s ease;
+}
+
+.toggleBtn:hover {
+  background: #6c63ff;
+  color: #000;
+}
+
+/* ---------- MODAL ---------- */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.modal {
+  background: #111;
+  border-radius: 16px;
+  max-width: min(900px, 95vw);
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: #222;
+  border: none;
+  color: #fff;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 34px;
+}
+
+.modalHeader {
+  padding: 1.4rem 1.4rem 0.6rem;
+  text-align: center;
+}
+
+.modalHeader h3 {
+  margin: 0 0 .35rem 0;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.modalImageBox {
+  width: 100%;
+  padding: 1rem 1.4rem 0;
+}
+
+.modalImageBox img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modalBtn {
+  margin: 1.2rem auto 1.6rem;
+  display: inline-block;
+  background: #6c63ff;
+  color: #000;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.6rem 1.4rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: opacity .2s ease;
+}
+
+.modalBtn:hover {
+  opacity: .85;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.4rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .cardTitle {
+    font-size: 0.95rem;
+  }
+}

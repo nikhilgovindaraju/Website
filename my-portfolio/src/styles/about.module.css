@@ -1,0 +1,197 @@
+/* ====== Section ====== */
+.aboutSection {
+  min-height: 100vh;
+  padding: 0 2rem 4rem;
+  text-align: center;
+  color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutSection h2 {
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+}
+
+/* ====== Summary ====== */
+.summary {
+  max-width: 820px;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  line-height: 1.8;
+  margin: 0 auto 2.25rem;
+  color: #ccc;
+}
+
+.highlight {
+  color: #6c63ff;
+  font-weight: 700;
+}
+
+/* ====== Education title ====== */
+.sectionTitle {
+  font-size: clamp(1.5rem, 3.8vw, 2.2rem);
+  margin: 2.5rem 0 1.75rem;
+  font-weight: 700;
+}
+
+/* ====== Grid ====== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ====== Flip Card base ====== */
+.flipCard {
+  perspective: 1200px;
+  position: relative;
+  min-height: 380px; /* desktop baseline */
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+/* Enable flip ONLY on hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  .flipCard:hover .flipCardInner {
+    transform: rotateY(180deg);
+  }
+}
+
+/* ====== Faces ====== */
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  backface-visibility: hidden;
+}
+
+.flipCardBack {
+  transform: rotateY(180deg);
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* ====== Image ====== */
+.eduImage {
+  width: 100%;
+  max-width: 220px;
+  height: 140px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 20px;
+}
+
+/* ====== Text ====== */
+.university {
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+}
+
+.degree {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: #aad4ff;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+}
+
+.gpa {
+  font-size: 0.95rem;
+  color: #cccccc;
+}
+
+/* ====== Coursework ====== */
+.courseworkHeading {
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  margin-bottom: 0.9rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.courseList {
+  list-style: disc;
+  padding-left: 1.25rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #dddddd;
+  text-align: left;
+  line-height: 1.5;
+  max-width: 500px;
+}
+
+/* ====== MOBILE / SMALL TABLETS ====== */
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 0 1rem 3rem;
+  }
+
+  .summary {
+    margin-bottom: 1.75rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  /* Disable flip and stack faces vertically */
+  .flipCard {
+    min-height: unset;
+  }
+
+  .flipCardInner {
+    height: auto;
+    transform: none !important;
+  }
+
+  .flipCardFront,
+  .flipCardBack {
+    position: relative;
+    inset: auto;
+    height: auto;
+    transform: none;
+    backface-visibility: visible;
+  }
+
+  .flipCardBack {
+    margin-top: 1rem;
+  }
+
+  .eduImage {
+    max-width: 180px;
+    height: 110px;
+  }
+}
+
+/* Even smaller phones */
+@media (max-width: 420px) {
+  .aboutSection h2 {
+    margin-top: 0.5rem;
+  }
+
+  .courseList {
+    padding-left: 1rem;
+  }
+}
