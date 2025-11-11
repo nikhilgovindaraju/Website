@@ -10,7 +10,8 @@ import portfolioImg from '../assets/portfolio.png';
 import seqalignImg from '../assets/seqalign.png';
 import routeItImg from '../assets/routeit.png';
 import transferLearning from '../assets/transferlearning.png';
-import amazonLogo from '../assets/amazon.png';
+import leaveNow from '../assets/LeaveNow.png';
+import timeFreezeLogo from '../assets/timeFreeze.png';
 
 
 const projects = [
@@ -29,18 +30,25 @@ const projects = [
         image: iosImg
     },
     {
-        title: "Secure EHR Audit System",
+        title: "EHR-AI: Secure Electronic Health Records with GPT Integration",
         technologies: ["Python", "FastAPI", "Blockchain", "AWS/Docker","Supabase", "Redis", "GPT-3","PostgreSQL"],
         description: "Built a secure EHR platform with AES-256, role-based access, and Redis caching, cutting API latency by 50%, and integrated a GPT-powered chatbot with dynamic FAQs to boost engagement by 60%. Deployed on AWS with Dockerized CI/CD and achieved near-zero downtime.",
         github: "https://github.com/nikhilgovindaraju/EHR-AI",
         image: ehrImg
     },
     {
-        title: "Distributed Order Fulfillment Platform",
+        title: "LeaveNow: Intelligent Commute Planner",
         technologies: ['Java', 'Spring Boot', 'Apache Kafka',' Node.js','MongoDB','Docker','Kubernetes'],
-        description: "Built a scalable microservices platform simulating Amazon's fulfillment flow with Kafka-driven event handling, predictive restocking in Node.js, and resilient containerized infrastructure using Kubernetes, DLQs, and circuit breakers.",
+        description: "Intelligent commute planner built with a microservices architecture that uses Calendar, Maps, and Weather data to deliver real-time, resilient, and event-driven leave-by notifications and replanning.",
         github: "https://github.com/nikhilgovindaraju/Distributed-Order-Fulfillment-Platform",
-        image: amazonLogo
+        image: leaveNow
+    },
+    {
+        title: "TimeFreeze Runner: Motion Controls Time",
+        technologies: ['Unity', 'C#', 'Motion Controls', 'Particle Systems', 'Audio Engine', 'Performance Optimization'],
+        description: "A top-down survival game developed in Unity that utilizes strategic time-freeze mechanics and motion controls to enhance strategic gameplay, focusing on high replayability and low-latency performance optimization.",
+        github: "https://csci-526.github.io/main-half-a-dozen/AlphaBuild/",
+        image: timeFreezeLogo
     },
     {
         title: "Personal Portfolio Website",

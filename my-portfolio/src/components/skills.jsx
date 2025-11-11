@@ -157,66 +157,92 @@ const categories = [
   },
 ];
 
+// export default function SkillsSection() {
+//   const [expanded, setExpanded] = useState({});
+
+//   // Auto-expand everything on small screens
+//   useEffect(() => {
+//     const isMobile = window.matchMedia('(max-width: 768px)').matches;
+//     if (isMobile) {
+//       const allOpen = {};
+//       categories.forEach((_, idx) => (allOpen[idx] = true));
+//       setExpanded(allOpen);
+//     }
+//   }, []);
+
+//   const toggleCard = (index) => {
+//     setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
+//   };
+
+//   return (
+//     <section id="skills" className={styles.skillsSection}>
+//       <h2 className={styles.title}>SKILLS</h2>
+
+//       <div className={styles.skillsGrid}>
+//         {categories.map((category, index) => {
+//           const isOpen = !!expanded[index];
+//           return (
+//             <div key={index} className={styles.skillCard}>
+//               <h3 className={styles.categoryTitle}>{category.title}</h3>
+
+//               <AnimatePresence initial={false}>
+//                 {isOpen && (
+//                   <motion.div
+//                     className={styles.skillTags}
+//                     initial={{ opacity: 0, height: 0 }}
+//                     animate={{ opacity: 1, height: 'auto' }}
+//                     exit={{ opacity: 0, height: 0 }}
+//                     transition={{ duration: 0.3 }}
+//                   >
+//                     {category.skills.map((skill, i) => (
+//                       <div key={i} className={styles.skillTag}>
+//                         {skill.iconClass && (
+//                           <i className={`${skill.iconClass} colored ${styles.devIcon}`}></i>
+//                         )}
+//                         {skill.name}
+//                       </div>
+//                     ))}
+//                   </motion.div>
+//                 )}
+//               </AnimatePresence>
+
+//               {/* Footer toggle is hidden on mobile via CSS */}
+//               <button
+//                 className={styles.cardFooter}
+//                 onClick={() => toggleCard(index)}
+//                 aria-label={`Toggle ${category.title}`}
+//               >
+//                 {isOpen ? <FaChevronUp /> : <FaChevronDown />}
+//               </button>
+//             </div>
+//           );
+//         })}
+//       </div>
+//     </section>
+//   );
+// }
+
 export default function SkillsSection() {
-  const [expanded, setExpanded] = useState({});
-
-  // Auto-expand everything on small screens
-  useEffect(() => {
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) {
-      const allOpen = {};
-      categories.forEach((_, idx) => (allOpen[idx] = true));
-      setExpanded(allOpen);
-    }
-  }, []);
-
-  const toggleCard = (index) => {
-    setExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
-  };
-
   return (
     <section id="skills" className={styles.skillsSection}>
       <h2 className={styles.title}>SKILLS</h2>
 
       <div className={styles.skillsGrid}>
-        {categories.map((category, index) => {
-          const isOpen = !!expanded[index];
-          return (
-            <div key={index} className={styles.skillCard}>
-              <h3 className={styles.categoryTitle}>{category.title}</h3>
-
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    className={styles.skillTags}
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {category.skills.map((skill, i) => (
-                      <div key={i} className={styles.skillTag}>
-                        {skill.iconClass && (
-                          <i className={`${skill.iconClass} colored ${styles.devIcon}`}></i>
-                        )}
-                        {skill.name}
-                      </div>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-
-              {/* Footer toggle is hidden on mobile via CSS */}
-              <button
-                className={styles.cardFooter}
-                onClick={() => toggleCard(index)}
-                aria-label={`Toggle ${category.title}`}
-              >
-                {isOpen ? <FaChevronUp /> : <FaChevronDown />}
-              </button>
+        {categories.map((category, index) => (
+          <div key={index} className={styles.skillCard}>
+            <h3 className={styles.categoryTitle}>{category.title}</h3>
+            <div className={styles.skillTags}>
+              {category.skills.map((skill, i) => (
+                <div key={i} className={styles.skillTag}>
+                  {skill.iconClass && (
+                    <i className={`${skill.iconClass} colored ${styles.devIcon}`}></i>
+                  )}
+                  {skill.name}
+                </div>
+              ))}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </section>
   );

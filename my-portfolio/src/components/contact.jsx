@@ -1,4 +1,4 @@
-import { FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin, FaGithub, FaCamera } from 'react-icons/fa';
 import styles from '../styles/contact.module.css';
 
 function Contact() {
@@ -17,6 +17,14 @@ function Contact() {
                 <a href="https://github.com/nikhilgovindaraju" target="_blank" rel="noopener noreferrer" className={styles.contactBtn}>
                     <FaGithub /> GitHub
                 </a>
+                <a
+          href="https://www.instagram.com/_thesnapguy_/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${styles.contactBtn} ${styles.photoBtn}`}
+        >
+          <FaCamera /> Snaps
+        </a>
             </div>
         </section>
     );

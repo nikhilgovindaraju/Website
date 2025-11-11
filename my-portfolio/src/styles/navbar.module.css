@@ -1,6 +1,6 @@
 /* === container === */
 .navbar {
-  position: sticky;           /* stay on top while scrolling */
+  position: sticky;
   top: 0;
   z-index: 1000;
   background-color: #2e3a59;
@@ -9,9 +9,13 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* default: mobile-first, horizontal scroll chip-bar */
+/* consistent item height */
+:root { --nav-item-h: 44px; }
+
+/* mobile-first: horizontal scroll chip-bar */
 nav ul {
   display: flex;
+  align-items: center;              /* ✅ vertical alignment */
   gap: 0.75rem;
   margin: 0;
   padding: 0 1rem;
@@ -27,51 +31,33 @@ nav ul {
   -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
 }
 
-nav ul::-webkit-scrollbar {
-  display: none;
-}
+nav ul::-webkit-scrollbar { display: none; }
 
-nav ul li {
-  flex-shrink: 0;
-}
+nav ul li { flex-shrink: 0; }
 
+/* base link style (same height as button) */
 nav ul li a {
-  color: white;
+  color: #fff;
   text-decoration: none;
   font-size: 1.05rem;
-  transition: color 0.25s ease;
-  padding: 0.75rem 0.6rem;
-  display: inline-block;
+  display: inline-flex;              /* ✅ center text inside */
+  align-items: center;
+  height: var(--nav-item-h);         /* ✅ uniform height */
+  line-height: 1;
+  padding: 0 0.75rem;                /* horizontal padding only */
+  transition: color 0.25s ease, transform 0.18s ease;
 }
 
-nav ul li a:hover {
-  color: #4e91fc;
-}
-
-nav ul li a[download] {
-  background-color: #4e91fc;
-  color: white;
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
-  font-weight: 600;
-  transition: background 0.25s ease, color 0.25s ease;
-  white-space: nowrap;
-}
-
-nav ul li a[download]:hover {
-  background-color: #377edb;
-}
+nav ul li a:hover { color: #b7cdff; }
 
 /* ====== TABLET & UP ====== */
 @media (min-width: 768px) {
-  .navbar {
-    padding: 0.9rem 0;
-  }
+  .navbar { padding: 0.9rem 0; }
 
   nav ul {
-    justify-content: center;       /* center the links */
-    overflow-x: visible;           /* no horizontal scroll */
-    white-space: normal;           /* allow wrap if needed (rare) */
+    justify-content: flex-start;     /* keep left-aligned links */
+    overflow-x: visible;
+    white-space: normal;
     mask-image: none;
     -webkit-mask-image: none;
     gap: 1.25rem;
@@ -79,14 +65,46 @@ nav ul li a[download]:hover {
 
   nav ul li a {
     font-size: 1.1rem;
-    padding: 0.9rem 0.75rem;
+    padding: 0 0.75rem;
   }
+
+  /* push Resume to far right on wider screens */
+  .resumeItem { margin-left: auto; } /* ← remove if you want inline */
+}
+
+/* === Résumé Button === */
+.resumeBtn {
+  background: linear-gradient(135deg, #5b57ff 0%, #7c3aed 100%);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  height: var(--nav-item-h);         /* ✅ same height as links */
+  padding: 0 0.95rem;                /* horizontal padding only */
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(92, 87, 255, 0.35);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+}
+
+.resumeBtn:hover {
+  background: linear-gradient(135deg, #6d67ff 0%, #8b5cf6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(92, 87, 255, 0.45);
+}
+
+.resumeBtn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.35),
+    0 0 0 5px rgba(124, 58, 237, 0.55);
 }
 
 /* ====== VERY SMALL PHONES ====== */
 @media (max-width: 360px) {
   nav ul li a {
     font-size: 0.95rem;
-    padding: 0.65rem 0.5rem;
+    padding: 0 0.5rem;
   }
 }
