@@ -17,39 +17,6 @@ A production-grade personal portfolio built with React, Vite, and Framer Motion.
 
 ---
 
-## Project Structure
-
-```
-src/
-├── assets/
-│   ├── certifications/     # Cert images
-│   └── *.png               # Project + company + education logos
-├── components/
-│   ├── navbar.jsx
-│   ├── hero.jsx
-│   ├── about.jsx
-│   ├── experience.jsx
-│   ├── projects.jsx
-│   ├── skills.jsx
-│   ├── Certifications.jsx
-│   ├── contact.jsx
-│   └── footer.jsx
-├── styles/
-│   └── *.module.css        # One CSS module per component
-├── hooks/
-│   └── useScrollReveal.js  # Scroll-triggered animation hook
-├── context/
-│   └── ThemeContext.jsx     # Dark / light mode toggle
-├── App.jsx
-├── main.jsx
-└── index.css               # Global design tokens + CSS variables
-
-public/
-└── NikhilGovindaraju.pdf   # Resume — replace to update
-```
-
----
-
 ## Getting Started
 
 ### Prerequisites
