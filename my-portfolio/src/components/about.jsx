@@ -1,142 +1,173 @@
-// import React from "react";
-// import styles from "../styles/about.module.css";
-// import { motion } from "framer-motion";
-
-// import uscLogo from '../assets/usc.png';
-// import jceLogo from '../assets/jce.png';
-
-// const certifications = [
-//   { title: "AWS Certified Cloud Practitioner", link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/" },
-//   { title: "OCI AI Foundations", link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/" },
-//   { title: "ML & AI by NASSCOM", link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/" },
-//   { title: "Certified Scrum Master", link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/" }
-// ];
-
-// const About = () => {
-//   return (
-//     <motion.section
-//       className={styles.aboutSection}
-//       id="about"
-//       initial={{ opacity: 0, y: 20 }}
-//       whileInView={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 1 }}
-//     >
-//       <h2>About Me</h2>
-//       <p className={styles.intro}>
-//         👨‍💻 Passionate Full Stack Developer | 2+ years coding dynamic, user-friendly apps.<br />
-//         🎓 Currently pursuing my M.S. in Computer Science @ USC | 🚀 Dreaming big & building bigger!
-//       </p>
-
-//       <div className={styles.subSection}>
-//         <h3>Education</h3>
-//         <div className={styles.eduList}>
-//           <div className={styles.eduItem}>
-//             <img src={uscLogo} alt="USC" />
-//             <div className={styles.eduDetails}>
-//               <h4>University of Southern California – M.S. in Computer Science</h4>
-//               <p>
-//                 Coursework: Analysis of Algorithms, Database Systems, Web Technologies, Information Retrieval & Web Search Engines, ML for Data Science, Applied Cryptography
-//               </p>
-//               <p><strong>GPA:</strong> 3.78 / 4.0</p>
-//             </div>
-//           </div>
-
-//           <div className={styles.eduItem}>
-//             <img src={jceLogo} alt="Undergrad" />
-//             <div className={styles.eduDetails}>
-//               <h4>JSS Science and Technology University – B.E. in Information Science and Engineering</h4>
-//               <p>
-//                 Coursework: Data Structures, Data Mining, Operating Systems, Software Engineering, Distributed Computing, Computer Networks, Computer Organization & Architecture
-//               </p>
-//               <p><strong>GPA:</strong> 9.01 / 10</p>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-
-//       <div className={styles.subSection}>
-//         <h3>Certifications & Achievements</h3>
-//         <ul className={styles.certList}>
-//           {certifications.map((cert, i) => (
-//             <li key={i}>
-//               <a href={cert.link} target="_blank" rel="noopener noreferrer">
-//                 {cert.title}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </motion.section>
-//   );
-// };
-
-// export default About;
-
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import styles from '../styles/about.module.css';
-import uscLogo from '../assets/usc.png';
-import jssLogo from '../assets/jce.png';
+import uscLogo  from '../assets/usc.png';
+import jssLogo  from '../assets/jce.png';
+import { useScrollReveal, fadeUp, staggerContainer, staggerItem, slideInLeft, slideInRight } from '../hooks/useScrollReveal';
+
+const stats = [
+  { value: '2+',  label: 'Years of Experience', desc: 'Full-time & internships'         },
+  { value: '15+', label: 'Projects Built',       desc: 'From idea to production'        },
+  { value: '30+', label: 'Technologies',         desc: 'Languages, frameworks & tools'  },
+  { value: '4',   label: 'Domains',              desc: 'Full Stack, Cloud, AI Powered Apps, Mobile'  },
+];
 
 const education = [
   {
     logo: uscLogo,
-    university: 'University of Southern California, Viterbi School of Engineering',
-    degree: 'M.S. in Computer Science',
-    gpa: '3.78 / 4.0',
-    coursework: [
-      'Analysis of Algorithms', 'Web Technologies', 'Database Systems',
-      'Information Retrieval', 'Machine Learning', 'Advance Game Developement','Applied Cryptography'
-    ]
+    school: 'University of Southern California',
+    short: 'USC Viterbi School of Engineering',
+    degree: 'M.S. Computer Science',
+    gpa: '3.81 / 4.0',
+    period: '2024 – 2025',
+    location: 'Los Angeles, CA',
+    courses: ['Analysis of Algorithms', 'Web Technologies', 'Database Systems', 'Machine Learning', 'Applied Cryptography', 'Advanced Game Dev', 'Information Retrieval and Search Engines'],
+    current: false,
   },
   {
     logo: jssLogo,
-    university: 'JSS Science & Technology University',
-    degree: 'B.E. in Information Science',
+    school: 'JSS Science & Technology University',
+    short: 'Mysuru, India',
+    degree: 'B.E. Information Science',
     gpa: '9.01 / 10',
-    coursework: [
-      'Data Structures', 'Operating Systems', 'Computer Networks',
-      'Distributed Systems', 'Software Engineering','Data Mining','Computer Organization & Architecture'
-
-    ]
-  }
+    period: '2017 – 2021',
+    location: 'Mysuru, India',
+    courses: ['Data Structures', 'Operating Systems', 'Computer Networks', 'Distributed Systems', 'Data Mining', 'Software Engineering'],
+    current: false,
+  },
 ];
 
-const About = () => {
+function StatCard({ stat }) {
   return (
-    <section className={styles.aboutSection} id="about">
-      <h2>WHO I AM</h2>
-      <p className={styles.summary}>
-  I’m a <span className={styles.highlight}>Full Stack Developer</span> with 2+ years of experience engineering scalable, cloud-native systems using modern web technologies.
-  Currently pursuing my <span className={styles.highlight}>M.S. in Computer Science @ USC</span>, specializing in system design, API development, and performance optimization.
-</p>
+    <motion.div className={styles.statCard} variants={staggerItem}>
+      <span className={styles.statValue}>{stat.value}</span>
+      <span className={styles.statLabel}>{stat.label}</span>
+      <span className={styles.statDesc}>{stat.desc}</span>
+    </motion.div>
+  );
+}
 
-      <h3 className={styles.sectionTitle}>EDUCATION 🎓</h3>
+function EduCard({ edu, index }) {
+  return (
+    <motion.div
+      className={edu.current ? `${styles.eduCard} ${styles.eduCurrent}` : styles.eduCard}
+      variants={index === 0 ? slideInLeft : slideInRight}
+    >
+      {edu.current && (
+        <div className={styles.currentBadge}>
+          <span className={styles.currentDot}></span>
+          Currently Enrolled
+        </div>
+      )}
 
-      <div className={styles.grid}>
-        {education.map((edu, index) => (
-          <div key={index} className={styles.flipCard}>
-            <div className={styles.flipCardInner}>
-              {/* FRONT */}
-              <div className={styles.flipCardFront}>
-                <img src={edu.logo} alt={edu.university} className={styles.eduImage} />
-                <h4 className={styles.university}>{edu.university}</h4>
-                <p className={styles.degree}>{edu.degree}</p>
-                <p className={styles.gpa}>GPA: {edu.gpa}</p>
-              </div>
+      <div className={styles.eduTop}>
+        <img src={edu.logo} alt={edu.school} className={styles.eduLogo} />
+        <div className={styles.eduInfo}>
+          <h3 className={styles.eduSchool}>{edu.school}</h3>
+          <p className={styles.eduShort}>{edu.short}</p>
+        </div>
+      </div>
 
-              {/* BACK */}
-              <div className={styles.flipCardBack}>
-                <h4 className={styles.courseworkHeading}>Relevant Coursework</h4>
-                <ul className={styles.courseList}>
-                  {edu.coursework.map((course, i) => (
-                    <li key={i}>{course}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+      <div className={styles.eduMid}>
+        <div className={styles.eduDegreeWrap}>
+          <span className={styles.eduDegree}>{edu.degree}</span>
+          <span className={styles.eduPeriod}>{edu.period}</span>
+        </div>
+        <div className={styles.gpaWrap}>
+          <span className={styles.gpaLabel}>GPA</span>
+          <span className={styles.gpaValue}>{edu.gpa}</span>
+        </div>
+      </div>
+
+      <div className={styles.eduCourses}>
+        <p className={styles.coursesLabel}>Coursework</p>
+        <div className={styles.chips}>
+          {edu.courses.map(c => (
+            <span key={c} className={styles.chip}>{c}</span>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+const About = () => {
+  const { ref: introRef,  controls: introControls  } = useScrollReveal();
+  const { ref: statsRef,  controls: statsControls  } = useScrollReveal();
+  const { ref: eduRef,    controls: eduControls    } = useScrollReveal();
+
+  return (
+    <section className={styles.about} id="about">
+      <div className={styles.inner}>
+
+        {/* ---- Intro ---- */}
+        <motion.div
+          ref={introRef}
+          className={styles.intro}
+          variants={fadeUp}
+          initial="hidden"
+          animate={introControls}
+        >
+          <div className={styles.sectionLabel}>
+            <span className={styles.labelLine}></span>
+            About Me
+            <span className={styles.labelLine}></span>
           </div>
-        ))}
+
+          <h2 className={styles.heading}>
+            I build things that
+            <span className={styles.accent}> live on the internet</span>
+          </h2>
+
+          <div className={styles.bioGrid}>
+          <p className={styles.bio}>
+  I'm a <strong>Full Stack Developer</strong> with 2+ years of
+  industry experience building scalable, cloud-native systems.
+  I care deeply about clean architecture, intuitive interfaces,
+  and shipping products that make a real difference.
+</p>
+<p className={styles.bio}>
+  <strong>M.S. CS graduate, USC Viterbi School of Engineering.</strong> I've
+  worked across healthcare, embedded systems, and SaaS — and I'm
+  actively looking for full-time roles where I can contribute
+  from day one.
+</p>
+          </div>
+        </motion.div>
+
+        {/* ---- Stats ---- */}
+        <motion.div
+          ref={statsRef}
+          className={styles.statsGrid}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={statsControls}
+        >
+          {stats.map(s => (
+            <StatCard key={s.label} stat={s} />
+          ))}
+        </motion.div>
+
+        {/* ---- Education ---- */}
+        <motion.div
+          ref={eduRef}
+          className={styles.eduSection}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={eduControls}
+        >
+          <div className={styles.sectionLabel}>
+            <span className={styles.labelLine}></span>
+            Education
+            <span className={styles.labelLine}></span>
+          </div>
+          <div className={styles.eduGrid}>
+            {education.map((edu, i) => (
+              <EduCard key={edu.school} edu={edu} index={i} />
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

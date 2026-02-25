@@ -1,115 +1,236 @@
-import React from "react";
-import { FaGithub } from "react-icons/fa";
-import styles from "../styles/projects.module.css";
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiGithub, FiArrowUpRight } from 'react-icons/fi';
+import styles from '../styles/projects.module.css';
 
-import weatherImg from '../assets/weather.png';
-import iosImg from '../assets/ios.png';
-import ehrImg from '../assets/EHR.png';
-import digitImg from '../assets/digitrecognition.png';
-import portfolioImg from '../assets/portfolio.png';
-import seqalignImg from '../assets/seqalign.png';
-import routeItImg from '../assets/routeit.png';
+import weatherImg       from '../assets/weather.png';
+import iosImg           from '../assets/ios.png';
+import ehrImg           from '../assets/EHR.png';
+import digitImg         from '../assets/digitrecognition.png';
+import portfolioImg     from '../assets/portfolio.png';
+import seqalignImg      from '../assets/seqalign.png';
+import routeItImg       from '../assets/routeit.png';
 import transferLearning from '../assets/transferlearning.png';
-import leaveNow from '../assets/LeaveNow.png';
-import timeFreezeLogo from '../assets/timeFreeze.png';
-
+import leaveNow         from '../assets/LeaveNow.png';
+import timeFreezeLogo   from '../assets/timeFreeze.png';
 
 const projects = [
-    {
-        title: "Weather Monitoring Application",
-        technologies: ["MEAN Stack", "Google Cloud", "RESTful APIs", "Highcharts"],
-        description: " Engineered a responsive web application using Angular and TypeScript frontend with Node.js/Express backend, integrating MongoDB for data persistence and real-time weather monitoring and location services, featuring interactive weather visualization using HighCharts.",
-        github: "https://github.com/nikhilgovindaraju/WeatherApp",
-        image: weatherImg
-    },
-    {
-        title: "Weather App (iOS)",
-        technologies: ["Node.js", "Express", "Swift","SwiftUI"],
-        description: "Developed a complementary native iOS mobile application using Swift and UIKit, implementing location-based services and weather data visualization, with RESTful API integration for seamless data synchronization with the web platform.",
-        github: "https://github.com/nikhilgovindaraju/iosAppDevelpment",
-        image: iosImg
-    },
-    {
-        title: "EHR-AI: Secure Electronic Health Records with GPT Integration",
-        technologies: ["Python", "FastAPI", "Blockchain", "AWS/Docker","Supabase", "Redis", "GPT-3","PostgreSQL"],
-        description: "Built a secure EHR platform with AES-256, role-based access, and Redis caching, cutting API latency by 50%, and integrated a GPT-powered chatbot with dynamic FAQs to boost engagement by 60%. Deployed on AWS with Dockerized CI/CD and achieved near-zero downtime.",
-        github: "https://github.com/nikhilgovindaraju/EHR-AI",
-        image: ehrImg
-    },
-    {
-        title: "LeaveNow: Intelligent Commute Planner",
-        technologies: ['Java', 'Spring Boot', 'Apache Kafka',' Node.js','MongoDB','Docker','Kubernetes'],
-        description: "Intelligent commute planner built with a microservices architecture that uses Calendar, Maps, and Weather data to deliver real-time, resilient, and event-driven leave-by notifications and replanning.",
-        github: "https://github.com/nikhilgovindaraju/Distributed-Order-Fulfillment-Platform",
-        image: leaveNow
-    },
-    {
-        title: "TimeFreeze Runner: Motion Controls Time",
-        technologies: ['Unity', 'C#', 'Motion Controls', 'Particle Systems', 'Audio Engine', 'Performance Optimization'],
-        description: "A top-down survival game developed in Unity that utilizes strategic time-freeze mechanics and motion controls to enhance strategic gameplay, focusing on high replayability and low-latency performance optimization.",
-        github: "https://csci-526.github.io/main-half-a-dozen/AlphaBuild/",
-        image: timeFreezeLogo
-    },
-    {
-        title: "Personal Portfolio Website",
-        technologies: ["React", "CSS Modules", "Framer Motion", "Responsive Design", "GitHub Pages"],
-        description: "Fully responsive portfolio showcasing projects, skills, and work experience using modern web technologies.",
-        github: "https://github.com/nikhilgovindaraju/Portfolio",
-        image: portfolioImg
-    },
-    {
-        title: "Waste Classification via Transfer Learning",
-        technologies: ["Python", "Keras", "TensorFlow", "Computer Vision", "Transfer Learning","scikit-learn"],
-        description: "Built a 9-class waste image classifier using transfer learning with pre-trained CNNs (ResNet, EfficientNet, VGG), applying Keras/TensorFlow, regularization, and augmentation to achieve high AUC and F1-scores on limited data.",
-        github: "https://github.com/nikhilgovindaraju/WasteClassification",
-        image: transferLearning
-    },
-    {
-        title: "Sequence Alignment",
-        technologies: ["Python", "Dynamic Programming", "Algorithms"],
-        description: "Implemented efficient Sequence Alignment solutions using Dynamic Programming and Divide-and-Conquer, optimizing memory usage and ensuring accurate results across datasets.",
-        github: "https://github.com/nikhilgovindaraju/SequenceAlignment",
-        image: seqalignImg
-    },
-    {
-        title: "Handwritten Digit Recognition",
-        technologies: ["Python", "Classification", "Keras", "TensorFlow"],
-        description: "Preprocessed the Emnist dataset and segmented it into categories that later helped in predicting digitally entered english alphabet using Keras library used for Machine Learning.",
-        github: "https://github.com/nikhilgovindaraju",
-        image: digitImg
-    },
-    {
-        title: "Route It- Smart traveling",
-        technologies: ["Flutter", "Google Maps", "Firebase", "Dart"],
-        description: "Architected a scalable cross-platform mobile and web application using Flutter and Dart for the frontend, implementing real-time route optimization algorithms and integrating Google Maps API for location services, with Firebase Authentication for secure user management.",
-        github: "https://github.com/nikhilgovindaraju/route_it_v2",
-        image: routeItImg
-    }
+  {
+    title: 'EHR-AI: Secure Health Records',
+    description: 'Secure EHR platform with AES-256 encryption, role-based access, and Redis caching cutting API latency by 50%. GPT-powered chatbot boosting engagement by 60%. Deployed on AWS with Dockerized CI/CD.',
+    technologies: ['Python', 'FastAPI', 'AWS', 'Docker', 'Redis', 'GPT-3', 'PostgreSQL'],
+    github: 'https://github.com/nikhilgovindaraju/EHR-AI',
+    image: ehrImg,
+    category: 'fullstack',
+    featured: true,
+  },
+  {
+    title: 'LeaveNow: Intelligent Commute Planner',
+    description: 'Microservices-based commute planner using Calendar, Maps, and Weather APIs for real-time event-driven leave-by notifications and smart replanning.',
+    technologies: ['Java', 'Spring Boot', 'Kafka', 'MongoDB', 'Docker', 'Kubernetes'],
+    github: 'https://github.com/nikhilgovindaraju/Distributed-Order-Fulfillment-Platform',
+    image: leaveNow,
+    category: 'fullstack',
+    featured: true,
+  },
+  {
+    title: 'Weather Monitoring App',
+    description: 'MEAN Stack web app with real-time weather visualisation using HighCharts, Node.js backend, and MongoDB persistence.',
+    technologies: ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'Highcharts'],
+    github: 'https://github.com/nikhilgovindaraju/WeatherApp',
+    image: weatherImg,
+    category: 'fullstack',
+    featured: true,
+  },
+  {
+    title: 'Waste Classification — Transfer Learning',
+    description: '9-class waste image classifier using transfer learning with ResNet, EfficientNet, and VGG. High AUC and F1-scores on limited training data.',
+    technologies: ['Python', 'Keras', 'TensorFlow', 'ResNet', 'EfficientNet'],
+    github: 'https://github.com/nikhilgovindaraju/WasteClassification',
+    image: transferLearning,
+    category: 'ml',
+    featured: false,
+  },
+  {
+    title: 'iOS Weather App',
+    description: 'Native iOS app with Swift and UIKit, location-based services, and weather data visualisation synced with the web platform.',
+    technologies: ['Swift', 'SwiftUI', 'UIKit', 'Node.js', 'REST APIs'],
+    github: 'https://github.com/nikhilgovindaraju/iosAppDevelpment',
+    image: iosImg,
+    category: 'mobile',
+    featured: false,
+  },
+  {
+    title: 'Route It — Smart Travelling',
+    description: 'Cross-platform Flutter app with real-time route optimisation and Google Maps integration for smart travel planning.',
+    technologies: ['Flutter', 'Dart', 'Google Maps', 'Firebase'],
+    github: 'https://github.com/nikhilgovindaraju/route_it_v2',
+    image: routeItImg,
+    category: 'mobile',
+    featured: false,
+  },
+  {
+    title: 'TimeFreeze Runner',
+    description: 'Top-down survival Unity game with strategic time-freeze mechanics, particle systems, and motion controls built for a USC Game Development course.',
+    technologies: ['Unity', 'C#', 'Particle Systems', 'Audio Engine'],
+    github: 'https://csci-526.github.io/main-half-a-dozen/AlphaBuild/',
+    image: timeFreezeLogo,
+    category: 'other',
+    featured: false,
+  },
+  {
+    title: 'Handwritten Digit Recognition',
+    description: 'EMNIST-based classifier for handwritten English alphabets using Keras with strong accuracy across all character categories.',
+    technologies: ['Python', 'Keras', 'TensorFlow', 'EMNIST'],
+    github: 'https://github.com/nikhilgovindaraju',
+    image: digitImg,
+    category: 'ml',
+    featured: false,
+  },
+  {
+    title: 'Sequence Alignment',
+    description: 'Memory-efficient sequence alignment using Dynamic Programming and Divide-and-Conquer optimised for large biological datasets.',
+    technologies: ['Python', 'Dynamic Programming', 'Algorithms'],
+    github: 'https://github.com/nikhilgovindaraju/SequenceAlignment',
+    image: seqalignImg,
+    category: 'other',
+    featured: false,
+  },
+  {
+    title: 'Portfolio Website',
+    description: 'Fully responsive developer portfolio with React, Framer Motion animations, dark/light mode, and GitHub Pages deployment.',
+    technologies: ['React', 'Framer Motion', 'CSS Modules', 'Vite'],
+    github: 'https://github.com/nikhilgovindaraju/Portfolio',
+    image: portfolioImg,
+    category: 'fullstack',
+    featured: false,
+  },
 ];
 
+const filters = [
+  { label: 'All',        value: 'all'      },
+  { label: 'Full Stack', value: 'fullstack' },
+  { label: 'Mobile',     value: 'mobile'   },
+  { label: 'ML / AI',    value: 'ml'       },
+  { label: 'Other',      value: 'other'    },
+];
+
+function openLink(url) {
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+function FilterBtn({ label, value, active, onClick }) {
+  return (
+    <button
+      className={active
+        ? `${styles.filterBtn} ${styles.filterActive}`
+        : styles.filterBtn}
+      onClick={onClick}
+    >
+      {label}
+    </button>
+  );
+}
+
+function ProjectCard({ proj }) {
+  return (
+    <motion.div
+      className={proj.featured
+        ? `${styles.card} ${styles.featuredCard}`
+        : styles.card}
+      layout
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.96 }}
+      transition={{ duration: 0.25 }}
+    >
+      {proj.featured && (
+        <div className={styles.featuredBadge}>Featured</div>
+      )}
+
+      <div className={styles.imageWrap}>
+        <img src={proj.image} alt={proj.title} className={styles.image} />
+        <div className={styles.overlay}>
+          <button
+            className={styles.overlayBtn}
+            onClick={() => openLink(proj.github)}
+          >
+            <FiGithub size={15}></FiGithub>
+            View on GitHub
+          </button>
+        </div>
+      </div>
+
+      <div className={styles.content}>
+        <div className={styles.titleRow}>
+          <h3 className={styles.title}>{proj.title}</h3>
+          <button
+            className={styles.linkBtn}
+            onClick={() => openLink(proj.github)}
+            aria-label="Open project"
+          >
+            <FiArrowUpRight size={15}></FiArrowUpRight>
+          </button>
+        </div>
+        <p className={styles.description}>{proj.description}</p>
+        <div className={styles.techRow}>
+          {proj.technologies.slice(0, 4).map(t => (
+            <span key={t} className={styles.tech}>{t}</span>
+          ))}
+          {proj.technologies.length > 4 && (
+            <span className={styles.tech}>+{proj.technologies.length - 4}</span>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 const Projects = () => {
-    return (
-        <section className={styles.projectsSection} id="projects">
-            <h2>PROJECTS</h2>
-            <div className={styles.grid}>
-                {projects.map((proj, index) => (
-                    <div key={index} className={styles.projectCard}>
-                        <img src={proj.image} alt={proj.title} className={styles.projectImage} />
-                        <h3>{proj.title}</h3>
-                        <div className={styles.techTags}>
-                            {proj.technologies.map((tech, idx) => (
-                                <span key={idx}>{tech}</span>
-                            ))}
-                        </div>
-                        <p>{proj.description}</p>
-                        <a href={proj.github} target="_blank" rel="noopener noreferrer" className={styles.githubLink}>
-                            <FaGithub /> GitHub
-                        </a>
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
+  const [active, setActive] = useState('all');
+
+  const filtered = active === 'all'
+    ? projects
+    : projects.filter(p => p.category === active);
+
+  return (
+    <section className={styles.projects} id="projects">
+      <div className={styles.inner}>
+
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className={styles.headerLeft}>
+            <span className={styles.sectionTag}>Work</span>
+            <h2 className={styles.heading}>Projects</h2>
+          </div>
+          <div className={styles.filters}>
+            {filters.map(f => (
+              <FilterBtn
+                key={f.value}
+                label={f.label}
+                value={f.value}
+                active={active === f.value}
+                onClick={() => setActive(f.value)}
+              />
+            ))}
+          </div>
+        </motion.div>
+
+        <div className={styles.grid}>
+          <AnimatePresence mode="popLayout">
+            {filtered.map(proj => (
+              <ProjectCard key={proj.title} proj={proj} />
+            ))}
+          </AnimatePresence>
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default Projects;

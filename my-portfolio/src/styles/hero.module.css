@@ -1,169 +1,451 @@
-/* ---- Layout ---- */
-.heroSection {
-  /* fluid horizontal padding, tighter on mobile */
-  padding: clamp(0.75rem, 3vw, 2rem) clamp(0.75rem, 4vw, 2.5rem) 2.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  color: #e0e0e0;
-  width: 100%;
-  /* keep the content width sensible on very wide screens */
-  max-width: 1100px;
-  margin: 0 auto;
-}
+/* ============================================================
+   HERO v2 — Bold Split Layout
+   ============================================================ */
 
-.imageContainer {
-  margin-top: 0.75rem;
-  margin-bottom: 2.5rem;
-}
+   .hero {
+    min-height: 100vh;
+    padding: 5rem 4rem 6rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* ============================================================
+     LEFT COLUMN
+     ============================================================ */
+  
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex: 1;
+    max-width: 560px;
+  }
+  
+  /* ---------- Badge ---------- */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-accent);
+    background: rgba(79, 142, 247, 0.07);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-secondary);
+    letter-spacing: 0.02em;
+  }
+  
+  .badgeDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+    animation: pulse 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1;   transform: scale(1);    }
+    50%       { opacity: 0.5; transform: scale(1.3);  }
+  }
+  
+  /* ---------- Name ---------- */
+  .name {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    color: var(--text-primary);
+  }
+  
+  .nameAccent {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* ---------- Role / Typewriter ---------- */
+  .roleRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2rem;
+  }
+  
+  .rolePrefix {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+    font-weight: 700;
+  }
+  
+  .roleText {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+  
+  .cursor {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+    animation: blink 1s step-end infinite;
+  }
+  
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+  
+  /* ---------- Description ---------- */
+  .description {
+    font-family: var(--font-body);
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 480px;
+  }
+  
+  /* ---------- CTA row ---------- */
+  .ctaRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .btnPrimary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--accent-gradient);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(79, 142, 247, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btnPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(79, 142, 247, 0.5);
+  }
+  
+  .btnGhost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+  
+  .btnGhost:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+  
+  /* ---------- Social buttons ---------- */
+  .socials {
+    display: flex;
+    gap: 0.6rem;
+  }
+  
+  .socialBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-strong);
+    background: var(--bg-card);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease,
+                background 0.2s ease, transform 0.2s ease;
+  }
+  
+  .socialBtn:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    background: rgba(79, 142, 247, 0.08);
+    transform: translateY(-2px);
+  }
+  
+  /* ============================================================
+     RIGHT COLUMN
+     ============================================================ */
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    flex-shrink: 0;
+  }
+  
+  /* ---------- Image card ---------- */
+  .imageCard {
+    position: relative;
+    width: clamp(260px, 30vw, 340px);
+    height: clamp(260px, 30vw, 340px);
+    border-radius: var(--radius-xl);
+    overflow: visible;
+  }
+  
+  .profilePic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-strong);
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 1;
+    display: block;
+  }
+  
+  .imageGlow {
+    position: absolute;
+    inset: -12px;
+    border-radius: var(--radius-xl);
+    background: var(--accent-gradient);
+    opacity: 0.12;
+    filter: blur(28px);
+    z-index: 0;
+  }
+  
+  /* Floating tags */
+  .floatTop {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-card);
+    border: 1px solid var(--border-accent);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-secondary);
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .floatDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    flex-shrink: 0;
+  }
+  
+  .floatBottom {
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* ---------- Stats row ---------- */
+  .statsRow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    width: 100%;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    position: relative;
+    flex: 1;
+  }
+  
+  .statValue {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  
+  .statLabel {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-align: center;
+    letter-spacing: 0.03em;
+  }
+  
+  .statDivider {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    height: 80%;
+    width: 1px;
+    background: var(--border);
+  }
 
-/* ---- Avatar ---- */
-.profilePic {
-  width: clamp(120px, 22vw, 250px);
-  height: clamp(120px, 22vw, 250px);
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(108, 99, 255, 0.4);
-  border: 3px solid #333;
-  object-fit: cover;
-}
-
-/* ---- Text ---- */
-.textContent {
-  /* let it be full width on mobile, cap on desktop */
-  max-width: 800px;
-  width: 100%;
-  padding: clamp(0.75rem, 2.5vw, 1.5rem);
-  margin: 0 auto;
-}
-
-.name {
-  color: #6c63ff;
-}
-
-/* fluid headings */
-h1 {
-  font-size: clamp(1.6rem, 6vw, 2.6rem);
-  margin-bottom: 0.35rem;
-  line-height: 1.2;
-}
-
-h2 {
-  font-size: clamp(1rem, 4.5vw, 1.6rem);
-  color: #a0a0ff;
-  font-weight: 500;
-  margin-bottom: 1.2rem;
-  line-height: 1.3;
-}
-
-/* keep the height stable so the cursor/emoji doesn't shift content */
-.typewriterWrapper {
-  display: inline-block;
-  min-height: 1.6em;
-}
-
-.description {
-  font-size: clamp(0.95rem, 2.8vw, 1.15rem);
-  margin-bottom: 1.75rem;
-  line-height: 1.65;
-  color: #cccccc;
-}
-
-/* ---- Buttons ---- */
-.buttonGroup {
+  /* ---------- Tech stack chips ---------- */
+.techStack {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.9rem;
-  justify-content: center;
-  width: 100%;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
-/* base styles shared by both CTAs */
-.resumeBtn,
-.workBtn {
-  appearance: none;
-  border: 0;
-  border-radius: 10px;
-  padding: 0.85rem 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
-  outline: none;
+.techChip {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  will-change: transform, box-shadow;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent-secondary);
+  background: rgba(79, 142, 247, 0.08);
+  border: 1px solid rgba(79, 142, 247, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* Primary (Résumé) — subtle gradient that fits your theme */
-.resumeBtn {
-  color: #fff;
-  background: linear-gradient(135deg, #5b57ff 0%, #7c3aed 100%);
-  box-shadow: 0 6px 18px rgba(92, 87, 255, 0.35);
-}
-
-/* Secondary (Discover) — ghost/outline that fills on hover */
-.workBtn {
-  color: #bdbfff;
-  background: rgba(124, 58, 237, 0.10);
-  border: 2px solid rgba(124, 58, 237, 0.45);
-  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.18) inset;
-}
-
-/* Hover / Active */
-.resumeBtn:hover {
+.techChip:hover {
+  background: rgba(79, 142, 247, 0.15);
   transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(92, 87, 255, 0.45);
 }
-
-.workBtn:hover {
-  transform: translateY(-2px);
-  background: rgba(124, 58, 237, 0.22);
-  color: #fff;
-}
-
-.resumeBtn:active,
-.workBtn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* Focus-visible ring for a11y (keyboard navigation) */
-.resumeBtn:focus-visible,
-.workBtn:focus-visible {
-  box-shadow:
-    0 0 0 3px rgba(255,255,255,0.15),
-    0 0 0 6px rgba(124, 58, 237, 0.45);
-}
-
-/* Icon sizing (if you use emojis or inline SVGs later) */
-.resumeBtn > svg, .workBtn > svg { width: 1.1em; height: 1.1em; }
-
-/* Full-width on very small screens */
-@media (max-width: 480px) {
-  .resumeBtn, .workBtn { width: 100%; justify-content: center; }
-}
-
-/* Respect users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .resumeBtn, .workBtn { transition: none; }
-}
-
-
-/* Optional: slight upscaling on large desktops */
-@media (min-width: 1200px) {
-  h1 {
-    font-size: 3rem;
+  
+  /* ---------- Scroll hint ---------- */
+  .scrollHint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-  h2 {
-    font-size: 1.8rem;
+  
+  .scrollLine {
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(to bottom, var(--accent-primary), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
   }
-  .description {
-    font-size: 1.2rem;
+  
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 1;   transform: scaleY(1);    }
+    50%       { opacity: 0.3; transform: scaleY(0.6);  }
   }
-}
-
-
-
+  
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  
+  @media (max-width: 900px) {
+    .hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      gap: 3rem;
+    }
+  
+    .left {
+      align-items: center;
+      max-width: 100%;
+    }
+  
+    .description {
+      text-align: center;
+    }
+  
+    .ctaRow {
+      justify-content: center;
+    }
+  
+    .socials {
+      justify-content: center;
+    }
+  
+    .right {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .name {
+      font-size: 2.8rem;
+    }
+  
+    .btnPrimary,
+    .btnGhost {
+      width: 100%;
+      justify-content: center;
+    }
+  
+    .ctaRow {
+      width: 100%;
+      flex-direction: column;
+    }
+  }

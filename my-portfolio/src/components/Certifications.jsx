@@ -1,213 +1,267 @@
-import React, { useState } from "react";
-import styles from "../styles/certifications.module.css";
 
-// ---- sample images (replace with yours) ----
-import oci from "../assets/certifications/oci.png";
-import aws from "../assets/certifications/aws.png";
-import scrum from "../assets/certifications/csm.png";
-import angular from "../assets/certifications/angular.png";
-import reactImg from "../assets/certifications/reactessential.png";
-import nasscom from "../assets/certifications/nasscom.png";
-import flutter from "../assets/certifications/flutter.png";
-import cloudnative from "../assets/certifications/awscloudnative.png";
-import pmi from "../assets/certifications/projectmgmnt.png";
-import agile from "../assets/certifications/agile.png";
-import agenticai from "../assets/certifications/agentic-ai.png";
+import { motion, AnimatePresence } from 'framer-motion';
+import { FiArrowUpRight } from 'react-icons/fi';
+import styles from '../styles/certifications.module.css';
+import { useScrollReveal, fadeUp, staggerContainer, staggerItem } from '../hooks/useScrollReveal';
+import React, { useState } from 'react';
 
-const CERTS = [
+import csmImg      from '../assets/certifications/csm.png';
+import awsImg      from '../assets/certifications/aws.png';
+import ociImg      from '../assets/certifications/oci.png';
+import agileImg    from '../assets/certifications/agile.png';
+import flutterImg  from '../assets/certifications/flutter.png';
+import angularImg  from '../assets/certifications/angular.png';
+import agenticImg  from '../assets/certifications/agentic-ai.png';
+import awsCloudImg from '../assets/certifications/awscloudnative.png';
+import projectImg  from '../assets/certifications/projectmgmnt.png';
+import nasscomImg  from '../assets/certifications/nasscom.png';
+import reactImg    from '../assets/certifications/reactessential.png';
+import googleAIImg  from '../assets/certifications/google-ai-essentials.png';
+
+
+
+const featured = [
   {
-    title: "Oracle Cloud Infrastructure AI Foundations Associate 2024",
-    organization: "Oracle",
-    issued: "2024",
-    image: oci,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Cloud", "Oracle", "AI"]
+    title: 'Google AI Essentials',
+    issuer: 'Google',
+    date: 'Feb 2026',
+    image: googleAIImg,
+    tags: ['AI tools', 'Prompt engineering', 'LLM', 'Generative AI'],
+    link: 'https://www.coursera.org/account/accomplishments/specialization/ZAB5SYJXCVHX',
+  },
+
+  {
+    title: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: 'Jan 2025',
+    image: awsImg,
+    tags: ['Cloud', 'AWS'],
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+
+  {
+    title: 'Certified Scrum Master',
+    issuer: 'Scrum Alliance',
+    date: 'Oct 2023',
+    image: csmImg,
+    tags: ['Agile', 'Scrum'],
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
   },
   {
-    title: "AWS Certified Cloud Practitioner",
-    organization: "AWS",
-    issued: "2025",
-    image: aws,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Cloud", "AWS"]
+    title: 'Agentic AI & Multi-Agent Systems',
+    issuer: 'Udemy',
+    date: '2025',
+    tags: ['AI', 'LLM'],
+    image: agenticImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
   },
-  {
-    title: "Certified Scrum Master",
-    organization: "Scrum Alliance",
-    issued: "2024",
-    image: scrum,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Agile", "Scrum"]
-  },
-  {
-    title: "Agentic AI: A Framework for Planning and Execution",
-    organization: "LinkedIn Learning",
-    issued: "2025",
-    image: agenticai,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Agentic AI", "AI", "Planning"]
-  },
-  {
-    title: "React Essential Training",
-    organization: "LinkedIn Learning",
-    issued: "2025",
-    image: reactImg,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Frontend", "React"]
-  },
-  {
-    title: "Complete Angular Course 2024",
-    organization: "Udemy",
-    issued: "2024",
-    image: angular,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Frontend", "Angular"]
-  },
-  {
-    title: "Software Project Management",
-    organization: "PMI",
-    issued: "2025",
-    image: pmi,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["SDLC", "Project Management"]
-  },
-  {
-    title: "Agile Software Development",
-    organization: "Comptia",
-    issued: "2025",
-    image: agile,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Agile", "Software Development"]
-  },
-  {
-    title: "Machine Learning & AI",
-    organization: "Nasscom Foundation",
-    issued: "2020",
-    image: nasscom,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["ML/AI"]
-  },
-  {
-    title: "AWS Fundamentals: Going Cloud-Native",
-    organization: "AWS",
-    issued: "2020",
-    image: cloudnative,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Cloud", "AWS"]
-  },
-  {
-    title: "Complete Flutter Development Bootcamp with Dart",
-    organization: "Udemy",
-    issued: "2021",
-    image: flutter,
-    link: "https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/",
-    tags: ["Mobile app", "Development", "Dart"]
-  }
+
 ];
 
-const INITIAL = 3;
+const rest = [
+  {
+    title: 'OCI AI Foundations Associate',
+    issuer: 'Oracle',
+    date: 'Nov 2024',
+    image: ociImg,
+    tags: ['Cloud', 'AI'],
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
 
-export default function Certifications() {
-  const [showAll, setShowAll] = useState(false);
-  const [active, setActive] = useState(null); // the cert opened in modal
+  {
+    title: 'AWS Cloud Native Architecture',
+    issuer: 'Amazon Web Services',
+    date: '2024',
+    tags: ['AWS', 'Architecture'],
+    image: awsCloudImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+  {
+    title: 'Agile Project Management',
+    issuer: 'Google',
+    date: '2023',
+    tags: ['Agile', 'PM'],
+    image: agileImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+  {
+    title: 'Flutter Development Bootcamp',
+    issuer: 'Udemy',
+    date: '2023',
+    tags: ['Flutter', 'Mobile'],
+    image: flutterImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+  {
+    title: 'Angular — The Complete Guide',
+    issuer: 'Udemy',
+    date: '2022',
+    tags: ['Angular', 'Frontend'],
+    image: angularImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+  {
+    title: 'React Essential Training',
+    issuer: 'LinkedIn Learning',
+    date: '2022',
+    tags: ['React', 'Frontend'],
+    image: reactImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+  {
+    title: 'Project Management',
+    issuer: 'Simplilearn',
+    date: '2022',
+    tags: ['PM'],
+    image: projectImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+  {
+    title: 'ML & AI Foundations',
+    issuer: 'NASSCOM',
+    date: '2022',
+    tags: ['ML', 'AI'],
+    image: nasscomImg,
+    link: 'https://www.linkedin.com/in/nikhil-govindaraju/details/certifications/',
+  },
+];
 
-  const visible = showAll ? CERTS : CERTS.slice(0, INITIAL);
+function openLink(url) {
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
 
+function FeaturedCard({ cert }) {
   return (
-    <section className={styles.section} id="certifications">
-      <h2 className={styles.title}>CERTIFICATIONS</h2>
-
-      <div className={styles.grid}>
-        {visible.map((c, i) => (
-          <article
-            key={i}
-            className={styles.card}
-            onClick={() => setActive(c)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && setActive(c)}
-          >
-            <div className={styles.imageBox}>
-              <img src={c.image} alt={c.title} />
-              <span className={styles.yearBadge}>{c.issued}</span>
-              <div className={styles.imageOverlay}>
-              </div>
-            </div>
-
-            <div className={styles.meta}>
-              <h3 className={styles.cardTitle}>{c.title}</h3>
-              <p className={styles.org}>{c.organization}</p>
-
-              {c.tags?.length ? (
-                <div className={styles.tags}>
-                  {c.tags.map((t) => (
-                    <span key={t} className={styles.tag}>
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              ) : null}
-
-              <button
-                className={styles.credentialBtn}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(c.link, "_blank");
-                }}
-              >
-                Show credential
-              </button>
-            </div>
-          </article>
-        ))}
+    <motion.div
+      className={styles.featuredCard}
+      variants={staggerItem}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      onClick={() => openLink(cert.link)}
+    >
+      <div className={styles.featuredImageWrap}>
+        <img src={cert.image} alt={cert.title} className={styles.featuredImage} />
+        <div className={styles.featuredOverlay}>
+          <FiArrowUpRight size={20}></FiArrowUpRight>
+        </div>
       </div>
-
-      {CERTS.length > INITIAL && (
-        <div className={styles.toggleContainer}>
-          <button
-          className={styles.toggleBtn}
-          onClick={() => setShowAll((s) => !s)}
-          >
-            {showAll ? "Show Less" : "Show More"}
-          </button>
+      <div className={styles.featuredContent}>
+        <div className={styles.featuredTags}>
+          {cert.tags.map(t => (
+            <span key={t} className={styles.tag}>{t}</span>
+          ))}
         </div>
-      )}
-
-      {/* Modal */}
-      {active && (
-        <div className={styles.modalBackdrop} onClick={() => setActive(null)}>
-          <div
-            className={styles.modal}
-            onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-          >
-            <button
-              className={styles.close}
-              onClick={() => setActive(null)}
-              aria-label="Close"
-            >
-              ✕
-            </button>
-
-            <div className={styles.modalHeader}>
-              <h3>{active.title}</h3>
-              <p className={styles.org}>{active.organization}</p>
-            </div>
-
-            <div className={styles.modalImageBox}>
-              <img src={active.image} alt={active.title} />
-            </div>
-
-            <button
-              className={styles.modalBtn}
-              onClick={() => window.open(active.link, "_blank")}
-            >
-              View credential
-            </button>
-          </div>
-        </div>
-      )}
-    </section>
+        <p className={styles.featuredTitle}>{cert.title}</p>
+        <p className={styles.featuredIssuer}>{cert.issuer}</p>
+        <p className={styles.featuredDate}>{cert.date}</p>
+      </div>
+    </motion.div>
   );
 }
+
+function RestRow({ cert }) {
+  return (
+    <motion.div
+      className={styles.restRow}
+      variants={staggerItem}
+      onClick={() => openLink(cert.link)}
+    >
+      <div className={styles.restThumb}>
+        <img src={cert.image} alt={cert.title} className={styles.restThumbImg} />
+      </div>
+      <div className={styles.restInfo}>
+        <p className={styles.restTitle}>{cert.title}</p>
+        <p className={styles.restMeta}>{cert.issuer} · {cert.date}</p>
+      </div>
+      <div className={styles.restTags}>
+        {cert.tags.map(t => (
+          <span key={t} className={styles.tag}>{t}</span>
+        ))}
+      </div>
+      <button
+        className={styles.restLink}
+        onClick={(e) => { e.stopPropagation(); openLink(cert.link); }}
+      >
+        <FiArrowUpRight size={14}></FiArrowUpRight>
+      </button>
+    </motion.div>
+  );
+}
+
+const Certifications = () => {
+  const { ref: headerRef, controls: headerControls } = useScrollReveal();
+  const { ref: featRef,   controls: featControls   } = useScrollReveal();
+  const { ref: restRef,   controls: restControls   } = useScrollReveal();
+  const [showMore, setShowMore] = useState(false);
+  return (
+    <section className={styles.certifications} id="certifications">
+      <div className={styles.inner}>
+
+        <motion.div
+          ref={headerRef}
+          className={styles.header}
+          variants={fadeUp}
+          initial="hidden"
+          animate={headerControls}
+        >
+          <div className={styles.headerLeft}>
+            <span className={styles.sectionTag}>Credentials</span>
+            <h2 className={styles.heading}>Certifications</h2>
+            <p className={styles.sub}>
+              Industry-recognized credentials in Cloud, AI &amp; Software Engineering
+            </p>
+          </div>
+          <div className={styles.totalBadge}>
+            <span className={styles.totalNum}>{featured.length + rest.length}</span>
+            <span className={styles.totalLabel}>credentials</span>
+          </div>
+        </motion.div>
+
+        {/* Featured 3 */}
+        <motion.div
+          ref={featRef}
+          className={styles.featuredGrid}
+          variants={staggerContainer}
+          initial="hidden"
+          animate={featControls}
+        >
+          {featured.map(cert => (
+            <FeaturedCard key={cert.title} cert={cert} />
+          ))}
+        </motion.div>
+
+{/* Rest as rows */}
+<div className={styles.restWrapper}>
+  <AnimatePresence>
+    {showMore && (
+      <motion.div
+        className={styles.restList}
+        initial={{ opacity: 0, height: 0 }}
+        animate={{ opacity: 1, height: 'auto' }}
+        exit={{ opacity: 0, height: 0 }}
+        transition={{ duration: 0.35, ease: 'easeInOut' }}
+        style={{ overflow: 'hidden' }}
+      >
+        <p className={styles.restLabel}>More Certifications</p>
+        {rest.map(cert => (
+          <RestRow key={cert.title} cert={cert} />
+        ))}
+      </motion.div>
+    )}
+  </AnimatePresence>
+
+  <button
+    className={styles.toggleBtn}
+    onClick={() => setShowMore(prev => !prev)}
+  >
+    {showMore
+      ? 'Show Less ↑'
+      : `Show ${rest.length} More Certifications ↓`}
+  </button>
+</div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Certifications;
